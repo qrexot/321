@@ -101,7 +101,7 @@ async function fillCardForm() {
     const storage = await chrome.storage.local.get(['generatedCards', 'currentFillingCard', 'randomData']);
 
     if (!storage.generatedCards || storage.generatedCards.length === 0) {
-      showNotification('⚠ Please generate cards first from extension popup', 'warning');
+      showNotification('⚠ Пожалуйста, сначала сгенерируйте карты в расширении', 'warning');
       isProcessing = false;
       return;
     }
@@ -120,7 +120,7 @@ async function fillCardForm() {
 
     const selectedCountry = randomData.country || 'KR';
 
-    showNotification('рџ”„ Auto-filling card details...', 'info');
+    showNotification('🔄 Автозаполнение данных карты...', 'info');
 
     await sleep(500);
 
@@ -1215,10 +1215,10 @@ async function fillCardForm() {
       }
     }
 
-    showNotification('вњ… All details filled successfully!', 'success');
+    showNotification('✅ Все данные успешно заполнены!', 'success');
 
   } catch (error) {
-    showNotification('вќЊ Error: ' + error.message, 'error');
+    showNotification('❌ Ошибка: ' + error.message, 'error');
     console.error('Fill error:', error);
   }
 
@@ -1246,7 +1246,7 @@ async function fillCardFormWithPrecard(card, randomData) {
     const data = randomData || defaultData;
     const selectedCountry = data.country || 'KR';
 
-    showNotification('рџ”„ Auto-filling with pre-card details...', 'info');
+    showNotification('🔄 Автозаполнение предварительных данных...', 'info');
 
     await sleep(500);
 
@@ -1531,10 +1531,10 @@ async function fillCardFormWithPrecard(card, randomData) {
       await sleep(300);
     }
 
-    showNotification('вњ… Pre-card details filled successfully!', 'success');
+    showNotification('✅ Предварительные данные успешно заполнены!', 'success');
 
   } catch (error) {
-    showNotification('вќЊ Error: ' + error.message, 'error');
+    showNotification('❌ Ошибка: ' + error.message, 'error');
     console.error('Fill error:', error);
   }
 
@@ -1866,7 +1866,7 @@ async function automateOpenAISignup(credentials) {
   chrome.storage.local.set({ openaiPendingCredentials: credentials });
 
   console.log('[OpenAI Automation] Starting signup with email:', credentials.email);
-  showNotification('🤖 Starting OpenAI account creation...', 'info');
+  showNotification('🤖 Запуск создания аккаунта OpenAI...', 'info');
 
   // Detect which page we're on and act accordingly
   if (window.location.hostname === 'chatgpt.com' || window.location.hostname === 'chat.openai.com') {
@@ -1887,7 +1887,7 @@ async function handleChatGPTPage(credentials) {
 
   if (emailInput && emailInput.offsetParent !== null) {
     console.log('[OpenAI Automation] Found email input directly, filling it...');
-    showNotification('📧 Entering email...', 'info');
+    showNotification('📧 Ввожу email...', 'info');
 
     await fillEmailAndContinue(emailInput, credentials);
     return;
@@ -1925,7 +1925,7 @@ async function handleChatGPTPage(credentials) {
 
   if (createAccountBtn) {
     console.log('[OpenAI Automation] Found Create Account button, clicking...');
-    showNotification('📝 Clicking Create Account...', 'info');
+    showNotification('📝 Нажимаю «Создать аккаунт»...', 'info');
     createAccountBtn.click();
 
     // Wait for form to appear (modal or page change)
@@ -1938,12 +1938,12 @@ async function handleChatGPTPage(credentials) {
       await fillEmailAndContinue(emailInput, credentials);
     } else {
       console.log('[OpenAI Automation] No email input found after clicking signup');
-      showNotification('⚠️ Email field not found, check browser manually', 'warning');
+      showNotification('⚠️ Поле email не найдено, проверьте вручную в браузере', 'warning');
     }
   } else {
     // Last resort: navigate directly to signup URL only if really nothing found
     console.log('[OpenAI Automation] No signup button found after extended search');
-    showNotification('⚠️ Signup button not found. Try clicking it manually or refresh page.', 'warning');
+    showNotification('⚠️ Кнопка регистрации не найдена. Попробуйте нажать вручную или обновите страницу.', 'warning');
 
     // Don't auto-redirect, let user try again
     return;
@@ -1967,7 +1967,7 @@ async function fillEmailAndContinue(emailInput, credentials) {
   }
 
   if (!emailCorrect) {
-    showNotification('❌ FATAL: Could not type email correctly!', 'error');
+    showNotification('❌ ОШИБКА: Не удалось корректно ввести email!', 'error');
     throw new Error('Email input mismatch');
   }
 
@@ -1976,7 +1976,7 @@ async function fillEmailAndContinue(emailInput, credentials) {
   if (continueBtn) {
     console.log('[OpenAI Automation] Clicking continue button...');
     continueBtn.click();
-    showNotification('⏳ Proceeding to next step...', 'info');
+    showNotification('⏳ Переходим к следующему шагу...', 'info');
   }
 }
 
@@ -1989,7 +1989,7 @@ async function handleAuthPage(credentials) {
 
   if (emailInput && !emailInput.value) {
     console.log('[OpenAI Automation] Found email input on auth page, filling...');
-    showNotification('📧 Entering email on auth page...', 'info');
+    showNotification('📧 Ввожу email на странице авторизации...', 'info');
     await fillEmailAndContinue(emailInput, credentials);
     return;
   }
@@ -2002,7 +2002,7 @@ async function handleAuthPage(credentials) {
     // Profile page
     await fillAboutYouPageWithCreds(credentials.fullName, credentials.birthday);
   } else if (currentPath.includes('/verify') || currentPath.includes('/verification')) {
-    showNotification('📩 Check extension for verification code!', 'info');
+    showNotification('📩 Проверьте расширение для кода подтверждения!', 'info');
   } else {
     // Fallback: Check for email input again with longer timeout if we are on a login/signup-like page
     if (currentPath.includes('login') || currentPath.includes('sign') || currentPath.includes('auth') || currentPath === '/') {
@@ -2023,12 +2023,12 @@ async function fillPasswordPageWithCreds(password) {
   if (!passwordInput) {
     console.log('[OpenAI Automation] Password input not found after wait');
     // Try refreshing the page if password input doesn't appear? No, safer to just stop or user can refresh.
-    showNotification('❌ Password field not found (slow internet?)', 'error');
+    showNotification('❌ Поле пароля не найдено (медленный интернет?)', 'error');
     return;
   }
 
   console.log('[OpenAI Automation] Entering password...');
-  showNotification('рџ”‘ Entering password...', 'info');
+  showNotification('🔑 Ввожу пароль...', 'info');
   await typeWithEvents(passwordInput, password);
   await sleep(500);
 
@@ -2041,7 +2041,7 @@ async function fillPasswordPageWithCreds(password) {
 
 async function fillAboutYouPageWithCreds(fullName, birthday) {
   console.log('[OpenAI Automation] Filling about-you page...');
-  showNotification('рџ‘¤ Filling profile info...', 'info');
+  showNotification('👤 Заполняю данные профиля...', 'info');
 
   // Wait for page to fully load
   await sleep(2000);
@@ -2459,7 +2459,7 @@ async function fillBirthdayWithValues(birthday) {
 
 async function enterVerificationCode(code) {
   console.log('[OpenAI Automation] Entering verification code:', code);
-  showNotification('🔢 Entering verification code: ' + code, 'info');
+  showNotification('🔢 Ввожу код подтверждения: ' + code, 'info');
 
   // Look for 6 individual digit inputs or a single input
   const digitInputs = document.querySelectorAll('input[maxlength="1"], input[type="tel"][maxlength="1"]');
@@ -2475,7 +2475,7 @@ async function enterVerificationCode(code) {
       digitInputs[i].dispatchEvent(new Event('change', { bubbles: true }));
       await sleep(100);
     }
-    showNotification('✅ Verification code entered!', 'success');
+    showNotification('✅ Код подтверждения введён!', 'success');
 
     // Click continue button after individual digits
     await sleep(500);
@@ -2538,7 +2538,7 @@ async function enterVerificationCode(code) {
     // Click the Continue button
     await clickContinueButton();
 
-    showNotification('✅ Verification code entered!', 'success');
+    showNotification('✅ Код подтверждения введён!', 'success');
   } else {
     console.log('[OpenAI Automation] Could not find code input field');
     // Try to find ANY visible input as a fallback
@@ -2550,7 +2550,7 @@ async function enterVerificationCode(code) {
       visibleInput.dispatchEvent(new Event('input', { bubbles: true }));
       await clickContinueButton();
     } else {
-      showNotification('❌ Could not find code input', 'error');
+      showNotification('❌ Не удалось найти поле для кода', 'error');
     }
   }
 }
@@ -2723,7 +2723,7 @@ if (window.location.hostname === 'chatgpt.com' ||
           // If on verification page, auto-fetch the code
           if (currentPath.includes('/email-verification') || currentPath.includes('/verify')) {
             console.log('[OpenAI Automation] On verification page, auto-fetching code...');
-            showNotification('рџ“Ё Auto-fetching verification code...', 'info');
+            showNotification('📨 Автоматически получаю код подтверждения...', 'info');
             autoFetchVerificationCode();
           } else {
             handleAuthPage(openaiCredentials);
@@ -2809,7 +2809,7 @@ async function autoFetchVerificationCode() {
   const domain = parts[1];
 
   console.log('[OpenAI Automation] Auto-fetching verification code for:', email);
-  showNotification('рџ“Ё Fetching verification code from inbox...', 'info');
+  showNotification('📨 Получаю код подтверждения из почты...', 'info');
 
   try {
     // Request code from background script
@@ -2821,7 +2821,7 @@ async function autoFetchVerificationCode() {
 
     if (result && result.success && result.code) {
       console.log('[OpenAI Automation] Got verification code:', result.code);
-      showNotification(`вњ… Code received: ${result.code}`, 'success');
+      showNotification(`✅ Код получен: ${result.code}`, 'success');
 
       // Auto-enter the code
       await enterVerificationCode(result.code);
@@ -2830,11 +2830,11 @@ async function autoFetchVerificationCode() {
       chrome.storage.local.remove(['openaiPendingCredentials']);
     } else {
       console.error('[OpenAI Automation] Failed to get code:', result?.error);
-      showNotification('вќЊ Could not fetch code: ' + (result?.error || 'Unknown error'), 'error');
+      showNotification('❌ Не удалось получить код: ' + (result?.error || 'Неизвестная ошибка'), 'error');
     }
   } catch (error) {
     console.error('[OpenAI Automation] Auto-fetch error:', error);
-    showNotification('вќЊ Error: ' + error.message, 'error');
+    showNotification('❌ Ошибка: ' + error.message, 'error');
   }
 }
 
@@ -3081,7 +3081,7 @@ async function fillPasswordPage(password) {
   if (!passwordInput) return;
 
   await typeWithEvents(passwordInput, password);
-  showNotification('рџ”‘ Password auto-filled from K12 account!', 'success');
+  showNotification('🔑 Пароль автоматически заполнен из аккаунта K12!', 'success');
   console.log('[Strintox K12] Password filled');
 
   await sleep(400);
@@ -3113,7 +3113,7 @@ async function fillAboutYouPage() {
     console.log('[Strintox K12] Birthday fields not found');
   }
 
-  showNotification('рџ‘¤ Profile info auto-filled!', 'success');
+  showNotification('👤 Данные профиля автоматически заполнены!', 'success');
 
   // Auto-click continue after short delay
   await sleep(400);
@@ -3125,12 +3125,12 @@ async function fillAboutYouPage() {
 }
 
 function showVerificationNotification() {
-  showNotification('📩 Use the extension to fetch the verification code!', 'info');
+  showNotification('📩 Используйте расширение, чтобы получить код подтверждения!', 'info');
 }
 
 async function enterVerificationCode(code) {
   console.log('[OpenAI Automation] Exploring verification code inputs...', code);
-  showNotification('🔢 Entering verification code: ' + code, 'info');
+  showNotification('🔢 Ввожу код подтверждения: ' + code, 'info');
 
   // Wait for at least one input
   await waitForElement('input', 20000).catch(() => null);
@@ -3143,6 +3143,8 @@ async function enterVerificationCode(code) {
   if (singleInput) {
     console.log('[OpenAI Automation] Found single code input');
     await typeWithEvents(singleInput, code);
+    await sleep(300);
+    await clickContinueButton(singleInput);
   } else {
     // Strategy 2: Split inputs (6 separate fields)
     console.log('[OpenAI Automation] Looking for split inputs...');
@@ -3166,9 +3168,11 @@ async function enterVerificationCode(code) {
           await sleep(50);
         }
       }
+      await sleep(300);
+      await clickContinueButton(inputs[0]);
     } else {
       console.error('[OpenAI Automation] Could not find code input fields!');
-      showNotification('❌ Could not find code input!', 'error');
+      showNotification('❌ Не удалось найти поле для кода!', 'error');
     }
   }
 }
@@ -3406,6 +3410,5 @@ function extractLiveCCResults() {
   result.liveCards = liveCards;
   return result;
 }
-
 
 
