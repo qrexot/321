@@ -1,0 +1,2719 @@
+// Korean First Names
+const KOREAN_FIRST_NAMES = [
+  "Minho", "Jiwon", "Hyunwoo", "Seojun", "Jihoon", "Donghyun", "Yujin", "Siwoo",
+  "Junhyuk", "Sangwoo", "Taehyung", "Jungkook", "Seokjin", "Namjoon", "Hoseok",
+  "Yoongi", "Jimin", "Doyoung", "Jaehyun", "Taeyong", "Mark", "Haechan",
+  "Soyeon", "Minji", "Yuna", "Dahyun", "Chaeyoung", "Nayeon", "Jihyo", "Tzuyu",
+  "Sunghoon", "Jungwon", "Heeseung", "Jake", "Sunoo", "Niki", "Jay",
+  "Wooyoung", "San", "Hongjoong", "Seonghwa", "Yunho", "Yeosang", "Mingi",
+  "Hyunjin", "Changbin", "Felix", "Seungmin", "Jeongin", "Bangchan", "Lee Know",
+  "Soojin", "Miyeon", "Shuhua", "Yuqi", "Minnie", "Jieun", "Suzy", "IU",
+  "Eunwoo", "Seungwoo", "Woobin", "Beomgyu", "Soobin", "Yeonjun", "Taehyun", "Huening",
+  "Gaeul", "Yujin", "Rei", "Wonyoung", "Liz", "Leeseo", "Karina", "Giselle", "Winter", "Ningning",
+  "Hanni", "Minji", "Danielle", "Haerin", "Hyein", "Ryujin", "Lia", "Yeji", "Chaeryeong"
+];
+
+// Korean Last Names
+const KOREAN_LAST_NAMES = [
+  "Kim", "Lee", "Park", "Choi", "Jung", "Kang", "Cho", "Yoon",
+  "Jang", "Lim", "Han", "Shin", "Seo", "Kwon", "Hwang", "Ahn",
+  "Song", "Yoo", "Hong", "Jeon", "Ko", "Moon", "Yang", "Son",
+  "Bae", "Baek", "Im", "Oh", "Ryu", "Nam", "Ha", "Noh",
+  "Byun", "Shim", "Woo", "Cha", "Min", "Won", "Jin", "Ku",
+  "Heo", "Jeong", "Seong", "Nam", "Ha", "Gwak", "Tak", "Goh", "Pyo"
+];
+
+// Korean Cities with State (Do/Si) and ZIP codes
+const KOREAN_CITIES = [
+  { city: "Seoul", state: "Seoul", zip: "06130" },
+  { city: "Busan", state: "Busan", zip: "48000" },
+  { city: "Incheon", state: "Incheon", zip: "21300" },
+  { city: "Daegu", state: "Daegu", zip: "41900" },
+  { city: "Daejeon", state: "Daejeon", zip: "34100" },
+  { city: "Gwangju", state: "Gwangju", zip: "61400" },
+  { city: "Ulsan", state: "Ulsan", zip: "44600" },
+  { city: "Suwon", state: "Gyeonggi-do", zip: "16200" },
+  { city: "Seongnam", state: "Gyeonggi-do", zip: "13400" },
+  { city: "Jeju", state: "Jeju-do", zip: "63000" },
+  { city: "Goyang", state: "Gyeonggi-do", zip: "10500" },
+  { city: "Yongin", state: "Gyeonggi-do", zip: "17000" },
+  { city: "Cheongju", state: "Chungcheongbuk-do", zip: "28500" },
+  { city: "Ansan", state: "Gyeonggi-do", zip: "15300" },
+  { city: "Jeonju", state: "Jeollabuk-do", zip: "54900" }
+];
+
+// Korean Streets
+const KOREAN_STREETS = [
+  "Gangnam-daero", "Dosan-daero", "Teheran-ro", "Sejong-daero", "Haeundae-ro",
+  "Jong-ro", "Eulji-ro", "Toegye-ro", "Mapo-daero", "Yeongdeungpo-ro",
+  "Songpa-daero", "Gwanak-ro", "Dongjak-daero", "Seocho-daero", "Hannam-daero"
+];
+
+// Indian First Names
+const INDIAN_FIRST_NAMES = [
+  "Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Reyansh", "Ayaan",
+  "Krishna", "Ishaan", "Shaurya", "Atharva", "Advait", "Dhruv", "Kabir", "Ritvik",
+  "Aadhya", "Ananya", "Diya", "Pari", "Aanya", "Saanvi", "Myra", "Amaira",
+  "Kiara", "Riya", "Prisha", "Navya", "Aditi", "Meera", "Tara", "Zara",
+  "Rohan", "Vikram", "Rahul", "Amit", "Suresh", "Rajesh", "Karan", "Dev",
+  "Neha", "Priya", "Anjali", "Pooja", "Shreya", "Kavya", "Nisha", "Simran",
+  "Aryan", "Kabir", "Ishaan", "Vihaan", "Ranveer", "Sidarth", "Akshay", "Vijay",
+  "Ishita", "Anshika", "Tanya", "Ridhima", "Sanya", "Kriti", "Kiara", "Shanaya"
+];
+
+// Indian Last Names
+const INDIAN_LAST_NAMES = [
+  "Sharma", "Verma", "Gupta", "Singh", "Kumar", "Patel", "Shah", "Joshi",
+  "Agarwal", "Mehta", "Rao", "Reddy", "Nair", "Iyer", "Pillai", "Menon",
+  "Chopra", "Kapoor", "Malhotra", "Bansal", "Jain", "Saxena", "Bhatia", "Khanna",
+  "Mishra", "Pandey", "Tiwari", "Dubey", "Srivastava", "Chauhan", "Yadav", "Thakur",
+  "Das", "Mukherjee", "Chatterjee", "Banerjee", "Sen", "Bose", "Dutta", "Ghosh",
+  "Tripathi", "Shukla", "Pandit", "Rangan", "Desai", "Goel", "Garg", "Sethi"
+];
+
+// Indian Cities with State and ZIP codes
+const INDIAN_CITIES = [
+  { city: "Mumbai", state: "Maharashtra", zip: "400001" },
+  { city: "Delhi", state: "Delhi", zip: "110001" },
+  { city: "Bangalore", state: "Karnataka", zip: "560001" },
+  { city: "Chennai", state: "Tamil Nadu", zip: "600001" },
+  { city: "Hyderabad", state: "Telangana", zip: "500001" },
+  { city: "Kolkata", state: "West Bengal", zip: "700001" },
+  { city: "Pune", state: "Maharashtra", zip: "411001" },
+  { city: "Ahmedabad", state: "Gujarat", zip: "380001" },
+  { city: "Jaipur", state: "Rajasthan", zip: "302001" },
+  { city: "Lucknow", state: "Uttar Pradesh", zip: "226001" },
+  { city: "Chandigarh", state: "Punjab", zip: "160001" },
+  { city: "Indore", state: "Madhya Pradesh", zip: "452001" },
+  { city: "Bhopal", state: "Madhya Pradesh", zip: "462001" },
+  { city: "Patna", state: "Bihar", zip: "800001" },
+  { city: "Vadodara", state: "Gujarat", zip: "390001" }
+];
+
+// Indian Street Names
+const INDIAN_STREETS = [
+  "MG Road", "Gandhi Nagar", "Nehru Street", "Patel Road", "Shastri Nagar",
+  "Station Road", "Market Street", "Temple Road", "Lake View Road", "Park Street",
+  "Civil Lines", "Model Town", "Sector 15", "Phase 2", "Block A",
+  "Rajaji Street", "Anna Nagar", "Indira Colony", "Sarojini Nagar", "Lajpat Nagar",
+  "Bannerghatta Road", "HSR Layout", "Koramangala 4th Block", "Jayanagar 10th Main",
+  "Connaught Place", "Golf Links", "Powai Lake Road", "Bandra West Main"
+];
+
+// UK First Names
+const UK_FIRST_NAMES = [
+  "Oliver", "George", "Harry", "Jack", "Jacob", "Noah", "Charlie", "Muhammad",
+  "Thomas", "Oscar", "William", "James", "Leo", "Alfie", "Henry", "Archie",
+  "Olivia", "Amelia", "Isla", "Ava", "Emily", "Isabella", "Mia", "Poppy",
+  "Ella", "Lily", "Grace", "Sophie", "Evie", "Charlotte", "Freya", "Florence",
+  "Arthur", "Freddie", "Theo", "Alexander", "Joshua", "Isaac", "Edward", "Lucas",
+  "Jessica", "Daisy", "Alice", "Sienna", "Phoebe", "Ivy", "Willow", "Harper"
+];
+
+// UK Last Names
+const UK_LAST_NAMES = [
+  "Smith", "Jones", "Williams", "Taylor", "Brown", "Davies", "Evans", "Wilson",
+  "Thomas", "Roberts", "Johnson", "Lewis", "Walker", "Robinson", "Wood", "Thompson",
+  "White", "Watson", "Jackson", "Wright", "Green", "Harris", "Cooper", "King",
+  "Lee", "Martin", "Clarke", "James", "Morgan", "Hughes", "Edwards", "Hill",
+  "Harrison", "Scott", "Bennett", "Young", "Allen", "Mitchell", "Kelly", "Carter"
+];
+
+// UK Cities
+const UK_CITIES = [
+  { city: "London", state: "Greater London", zip: "SW1A 1AA" },
+  { city: "Manchester", state: "Greater Manchester", zip: "M1 1AD" },
+  { city: "Birmingham", state: "West Midlands", zip: "B1 1AA" },
+  { city: "Leeds", state: "West Yorkshire", zip: "LS1 1AA" },
+  { city: "Liverpool", state: "Merseyside", zip: "L1 1AA" },
+  { city: "Bristol", state: "Bristol", zip: "BS1 1AA" },
+  { city: "Edinburgh", state: "Scotland", zip: "EH1 1AA" },
+  { city: "Glasgow", state: "Scotland", zip: "G1 1AA" },
+  { city: "Cardiff", state: "Wales", zip: "CF10 1AA" },
+  { city: "Newcastle", state: "Tyne and Wear", zip: "NE1 1AA" },
+  { city: "Sheffield", state: "South Yorkshire", zip: "S1 1AA" },
+  { city: "Nottingham", state: "Nottinghamshire", zip: "NG1 1AA" },
+  { city: "Belfast", state: "Northern Ireland", zip: "BT1 1AA" },
+  { city: "Leicester", state: "Leicestershire", zip: "LE1 1AA" },
+  { city: "Brighton", state: "East Sussex", zip: "BN1 1AA" }
+];
+
+// UK Streets
+const UK_STREETS = [
+  "High Street", "Station Road", "Church Lane", "Park Avenue", "Victoria Road",
+  "Mill Lane", "Kings Road", "Queens Drive", "Green Lane", "Manor Road",
+  "London Road", "York Street", "Albert Road", "Main Street", "Market Street",
+  "Grosvenor Square", "Baker Street", "Fleet Street", "Piccadilly", "Regent Street",
+  "Oxford Street", "Park Lane", "Pall Mall", "The Mall", "Downing Street"
+];
+
+// USA First Names
+const USA_FIRST_NAMES = [
+  "James", "Michael", "Robert", "John", "David", "William", "Richard", "Joseph",
+  "Thomas", "Christopher", "Charles", "Daniel", "Matthew", "Anthony", "Mark", "Donald",
+  "Emma", "Olivia", "Ava", "Isabella", "Sophia", "Mia", "Charlotte", "Amelia",
+  "Harper", "Evelyn", "Abigail", "Emily", "Elizabeth", "Sofia", "Avery", "Ella",
+  "Liam", "Noah", "Oliver", "Elijah", "Lucas", "Mason", "Logan", "Ethan",
+  "Luna", "Layla", "Chloe", "Grace", "Nora", "Hazel", "Zoe", "Mila"
+];
+
+// USA Last Names
+const USA_LAST_NAMES = [
+  "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis",
+  "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas",
+  "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", "White",
+  "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson", "Walker", "Young",
+  "Hall", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill"
+];
+
+// USA Cities
+const USA_CITIES = [
+  { city: "New York", state: "New York", zip: "10001" },
+  { city: "Los Angeles", state: "California", zip: "90001" },
+  { city: "Chicago", state: "Illinois", zip: "60601" },
+  { city: "Houston", state: "Texas", zip: "77001" },
+  { city: "Phoenix", state: "Arizona", zip: "85001" },
+  { city: "Philadelphia", state: "Pennsylvania", zip: "19101" },
+  { city: "San Antonio", state: "Texas", zip: "78201" },
+  { city: "San Diego", state: "California", zip: "92101" },
+  { city: "Dallas", state: "Texas", zip: "75201" },
+  { city: "Miami", state: "Florida", zip: "33101" },
+  { city: "Seattle", state: "Washington", zip: "98101" },
+  { city: "Austin", state: "Texas", zip: "73301" },
+  { city: "Boston", state: "Massachusetts", zip: "02108" },
+  { city: "Denver", state: "Colorado", zip: "80201" },
+  { city: "Las Vegas", state: "Nevada", zip: "89101" }
+];
+
+// USA Streets
+const USA_STREETS = [
+  "Main Street", "Oak Avenue", "Maple Drive", "Cedar Lane", "Pine Street",
+  "Elm Street", "Washington Boulevard", "Lincoln Avenue", "Park Place", "Broadway",
+  "First Street", "Second Avenue", "Third Street", "Lake Drive", "River Road",
+  "Wall Street", "Madison Avenue", "Fifth Avenue", "Sunset Boulevard", "Hollywood Blvd",
+  "Michigan Avenue", "Pennsylvania Avenue", "Bourbon Street", "Abbey Road", "Ocean Drive"
+];
+
+function randomChoice(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// ===== HARDCODED CONFIGURATION FOR OPENAI =====
+// ===== MAIL.TM FREE API (No API key required!) =====
+const MAIL_TM_API = 'https://api.mail.tm';
+let currentMailbox = null;
+let mailTmToken = null;
+
+async function generateTempEmail() {
+  try {
+    console.log('[Mail.tm] Generating new temp email...');
+
+    // Step 1: Get available domains
+    const domainsResponse = await fetch(`${MAIL_TM_API}/domains`);
+    if (!domainsResponse.ok) {
+      throw new Error(`Failed to get domains: ${domainsResponse.status}`);
+    }
+    const domainsData = await domainsResponse.json();
+    const domains = domainsData['hydra:member'] || domainsData;
+
+    if (!domains || domains.length === 0) {
+      throw new Error('No domains available');
+    }
+
+    const domain = domains[0].domain;
+    console.log('[Mail.tm] Using domain:', domain);
+
+    // Step 2: Generate short random email address
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let randomSuffix = '';
+    for (let i = 0; i < 6; i++) {
+      randomSuffix += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    const emailName = `stx_${randomSuffix}`;
+    const email = `${emailName}@${domain}`;
+    const password = `Stx${randomSuffix}@8687`;
+
+    console.log('[Mail.tm] Creating account for:', email);
+
+    // Step 3: Create account
+    const createResponse = await fetch(`${MAIL_TM_API}/accounts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        address: email,
+        password: password
+      })
+    });
+
+    if (!createResponse.ok) {
+      const errorText = await createResponse.text();
+      console.error('[Mail.tm] Account creation failed:', errorText);
+      throw new Error(`Failed to create account: ${createResponse.status}`);
+    }
+
+    const accountData = await createResponse.json();
+    console.log('[Mail.tm] Account created:', accountData.address);
+
+    // Step 4: Get auth token
+    const tokenResponse = await fetch(`${MAIL_TM_API}/token`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        address: email,
+        password: password
+      })
+    });
+
+    if (!tokenResponse.ok) {
+      throw new Error(`Failed to get token: ${tokenResponse.status}`);
+    }
+
+    const tokenData = await tokenResponse.json();
+    mailTmToken = tokenData.token;
+    console.log('[Mail.tm] Got auth token');
+
+    currentMailbox = {
+      email,
+      emailName,
+      domain,
+      password,
+      accountId: accountData.id,
+      token: mailTmToken
+    };
+
+    return {
+      email,
+      login: emailName,
+      domain: domain,
+      mailboxPassword: password,  // For re-authentication later
+      success: true
+    };
+  } catch (error) {
+    console.error('[Mail.tm] Error:', error);
+    throw error;
+  }
+}
+
+async function checkTempMailInbox(login, domain, maxRetries = 60, delayMs = 2000, mailboxPassword = null) {
+  const email = `${login}@${domain}`;
+  console.log('[Mail.tm] Checking inbox for:', email);
+
+  // Always try to get fresh token if we have password
+  if (mailboxPassword) {
+    console.log('[Mail.tm] Authenticating with saved password...');
+    try {
+      const tokenResponse = await fetch(`${MAIL_TM_API}/token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          address: email,
+          password: mailboxPassword
+        })
+      });
+
+      if (tokenResponse.ok) {
+        const tokenData = await tokenResponse.json();
+        mailTmToken = tokenData.token;
+        console.log('[Mail.tm] Authenticated successfully!');
+      } else {
+        const errorText = await tokenResponse.text();
+        console.log('[Mail.tm] Authentication failed:', tokenResponse.status, errorText);
+        // Try to continue with existing token if available
+      }
+    } catch (e) {
+      console.error('[Mail.tm] Authentication error:', e);
+    }
+  }
+
+  if (!mailTmToken) {
+    throw new Error('Токен авторизации отсутствует. Сначала создайте новый email.');
+  }
+
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      console.log(`[Mail.tm] Attempt ${i + 1}/${maxRetries}...`);
+
+      const response = await fetch(`${MAIL_TM_API}/messages`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${mailTmToken}`
+        }
+      });
+
+      if (!response.ok) {
+        console.log(`[Mail.tm] API returned ${response.status}`);
+        await new Promise(r => setTimeout(r, delayMs));
+        continue;
+      }
+
+      const data = await response.json();
+      const messages = data['hydra:member'] || data || [];
+
+      console.log('[Mail.tm] Messages found:', messages.length);
+
+      if (messages.length > 0) {
+        // Look for OpenAI verification emails and get the LATEST one
+        const openaiEmails = messages.filter(msg => {
+          const from = (msg.from?.address || '').toLowerCase();
+          const subject = (msg.subject || '').toLowerCase();
+          const name = (msg.from?.name || '').toLowerCase();
+
+          return from.includes('openai') || from.includes('chatgpt') ||
+            name.includes('openai') || name.includes('chatgpt') ||
+            subject.includes('verify') || subject.includes('code') ||
+            subject.includes('chatgpt') || subject.includes('openai') ||
+            // Russian keywords
+            subject.includes('код') || subject.includes('подтверждение') ||
+            subject.includes('верка') || subject.includes('вход');
+        });
+
+        // Sort by createdAt descending (newest first) and take the first one
+        if (openaiEmails.length > 0) {
+          openaiEmails.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          const openaiEmail = openaiEmails[0];
+          console.log('[Mail.tm] Found', openaiEmails.length, 'OpenAI emails, using latest:', openaiEmail.subject, 'from', openaiEmail.createdAt);
+
+          // Get full message content
+          const msgResponse = await fetch(`${MAIL_TM_API}/messages/${openaiEmail.id}`, {
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${mailTmToken}`
+            }
+          });
+
+          if (msgResponse.ok) {
+            const fullMessage = await msgResponse.json();
+            const allText = (fullMessage.subject || '') + ' ' + (fullMessage.text || '') + ' ' + (fullMessage.html || []).join(' ');
+
+            const codeMatch = allText.match(/\b(\d{6})\b/);
+            if (codeMatch) {
+              console.log('[Mail.tm] Verification code found:', codeMatch[1]);
+              return {
+                success: true,
+                code: codeMatch[1],
+                message: fullMessage
+              };
+            }
+          }
+        }
+      }
+
+      await new Promise(r => setTimeout(r, delayMs));
+    } catch (error) {
+      console.error('[Mail.tm] Error checking inbox:', error);
+      await new Promise(r => setTimeout(r, delayMs));
+    }
+  }
+
+  throw new Error('Verification email not received after ' + maxRetries + ' attempts');
+}
+
+function generateOpenAIPassword(emailPrefix) {
+  // Pattern: emailPrefix@XXXX (random 4 digits) - ensures 12+ chars
+  const suffix = Math.floor(1000 + Math.random() * 9000);
+  const password = `${emailPrefix}@${suffix}`;
+  console.log('[OpenAI] Generated password:', password);
+  return password;
+}
+
+function generateRandomBirthday() {
+  const year = 1970 + Math.floor(Math.random() * 30); // 1970-1999
+  const month = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+  const day = String(Math.floor(Math.random() * 28) + 1).padStart(2, '0');
+  return { day, month, year: String(year) };
+}
+
+function generateRandomOpenAIName() {
+  const firstNames = ['Alex', 'Jordan', 'Taylor', 'Morgan', 'Casey', 'Riley', 'Quinn', 'Avery', 'Cameron', 'Dakota'];
+  const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Wilson', 'Moore', 'Taylor'];
+  return {
+    firstName: firstNames[Math.floor(Math.random() * firstNames.length)],
+    lastName: lastNames[Math.floor(Math.random() * lastNames.length)]
+  };
+}
+
+// ===== HOT RELOAD FOR DEVELOPMENT =====
+// Checks for file changes every 2 seconds and reloads extension if detected
+const HOT_RELOAD_ENABLED = true;
+const HOT_RELOAD_INTERVAL = 2000; // 2 seconds
+
+let lastModifiedTimes = {};
+
+async function checkForFileChanges() {
+  if (!HOT_RELOAD_ENABLED) return;
+
+  try {
+    // Get list of extension files to watch
+    const filesToWatch = ['background.js', 'content.js', 'popup.js', 'popup.html', 'styles.css', 'manifest.json'];
+
+    for (const file of filesToWatch) {
+      try {
+        const response = await fetch(chrome.runtime.getURL(file), { cache: 'no-store' });
+        const text = await response.text();
+        const currentHash = hashCode(text);
+
+        if (lastModifiedTimes[file] && lastModifiedTimes[file] !== currentHash) {
+          console.log(`[Strintox Hot Reload] File changed: ${file} - Reloading extension...`);
+          chrome.runtime.reload();
+          return;
+        }
+
+        lastModifiedTimes[file] = currentHash;
+      } catch (e) {
+        // File might not exist, skip it
+      }
+    }
+  } catch (error) {
+    console.error('[Strintox Hot Reload] Error checking for changes:', error);
+  }
+}
+
+function hashCode(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return hash;
+}
+
+// Start hot reload watcher
+if (HOT_RELOAD_ENABLED) {
+  console.log('[Strintox Hot Reload] Hot reload enabled - watching for file changes...');
+  // Initial hash capture
+  checkForFileChanges();
+  // Start interval check
+  setInterval(checkForFileChanges, HOT_RELOAD_INTERVAL);
+}
+
+// Extension Version
+const EXTENSION_VERSION = '7.0.1';
+
+// Hardcoded BIN and Expiry for South Korea (default)
+const HARDCODED_BIN = '625814260207';
+const HARDCODED_EXPIRY_MONTH = '01';
+const HARDCODED_EXPIRY_YEAR = '2033';
+
+// India BIN and Expiry
+const INDIA_BIN = '551827706';
+const INDIA_EXPIRY_MONTH = '03';
+const INDIA_EXPIRY_YEAR = '2029';
+
+// South Korean Address (default)
+const KR_ADDRESS = '123 Gangnam-daero';
+const KR_CITY = 'Seoul';
+const KR_ZIP = '06130';
+const KR_STATE = 'Gangnam-gu';
+
+function generateRandomData(country = 'IN') {
+  console.log('[Strintox v7.0.0] generateRandomData called with country:', country);
+
+  if (country === 'IN') {
+    // Generate unique Indian data
+    const cityData = randomChoice(INDIAN_CITIES);
+    const houseNumber = Math.floor(Math.random() * 500) + 1;
+    const street = randomChoice(INDIAN_STREETS);
+    return {
+      name: `${randomChoice(INDIAN_FIRST_NAMES)} ${randomChoice(INDIAN_LAST_NAMES)}`,
+      address: `${houseNumber}, ${street}`,
+      address2: '',
+      city: cityData.city,
+      zip: cityData.zip,
+      state: cityData.state,
+      country: 'IN'
+    };
+  }
+
+  if (country === 'UK' || country === 'GB') {
+    // Generate unique UK data
+    const cityData = randomChoice(UK_CITIES);
+    const houseNumber = Math.floor(Math.random() * 200) + 1;
+    const street = randomChoice(UK_STREETS);
+    return {
+      name: `${randomChoice(UK_FIRST_NAMES)} ${randomChoice(UK_LAST_NAMES)}`,
+      address: `${houseNumber} ${street}`,
+      address2: '',
+      city: cityData.city,
+      zip: cityData.zip,
+      state: cityData.state,
+      country: 'GB'
+    };
+  }
+
+  if (country === 'US' || country === 'USA') {
+    // Generate unique USA data
+    const cityData = randomChoice(USA_CITIES);
+    const houseNumber = Math.floor(Math.random() * 9999) + 1;
+    const street = randomChoice(USA_STREETS);
+    return {
+      name: `${randomChoice(USA_FIRST_NAMES)} ${randomChoice(USA_LAST_NAMES)}`,
+      address: `${houseNumber} ${street}`,
+      address2: '',
+      city: cityData.city,
+      zip: cityData.zip,
+      state: cityData.state,
+      country: 'US'
+    };
+  }
+
+  // Default: South Korea
+  const cityData = randomChoice(KOREAN_CITIES);
+  const houseNumber = Math.floor(Math.random() * 500) + 1;
+  const street = randomChoice(KOREAN_STREETS);
+  return {
+    name: `${randomChoice(KOREAN_FIRST_NAMES)} ${randomChoice(KOREAN_LAST_NAMES)}`,
+    address: `${houseNumber} ${street}`,
+    address2: '',
+    city: cityData.city,
+    zip: cityData.zip,
+    state: cityData.state,
+    country: 'KR'
+  };
+}
+
+function cleanBin(bin) {
+  if (!bin) return '';
+  return String(bin).replace(/\D/g, '').trim();
+}
+
+function luhnCheck(cardNumber) {
+  let sum = 0;
+  let isEven = false;
+
+  for (let i = cardNumber.length - 1; i >= 0; i--) {
+    let digit = parseInt(cardNumber[i]);
+
+    if (isEven) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+
+    sum += digit;
+    isEven = !isEven;
+  }
+
+  return sum % 10 === 0;
+}
+
+function calculateLuhnCheckDigit(partial) {
+  let sum = 0;
+  let isEven = true;
+
+  for (let i = partial.length - 1; i >= 0; i--) {
+    let digit = parseInt(partial[i]);
+
+    if (isEven) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+
+    sum += digit;
+    isEven = !isEven;
+  }
+
+  return (10 - (sum % 10)) % 10;
+}
+
+function generateCardWithLuhn(bin) {
+  let cardNumber = bin;
+
+  while (cardNumber.length < 15) {
+    cardNumber += Math.floor(Math.random() * 10);
+  }
+
+  const checkDigit = calculateLuhnCheckDigit(cardNumber);
+  cardNumber += checkDigit;
+
+  return cardNumber;
+}
+
+function generateCardsWithLuhn(bin, quantity, expiryMonth = null, expiryYear = null) {
+  const cards = [];
+  const actualBin = cleanBin(bin);
+  const expMonth = expiryMonth || HARDCODED_EXPIRY_MONTH;
+  const expYear = expiryYear || HARDCODED_EXPIRY_YEAR;
+
+  for (let i = 0; i < quantity; i++) {
+    const cardNumber = generateCardWithLuhn(actualBin);
+    const cvv = String(Math.floor(Math.random() * 900) + 100);
+
+    cards.push({
+      serial_number: i + 1,
+      card_number: cardNumber,
+      expiry_month: expMonth,
+      expiry_year: expYear,
+      cvv: cvv,
+      full_format: `${cardNumber}|${expMonth}|${expYear}|${cvv}`
+    });
+  }
+
+  return cards;
+}
+
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.local.get(['extensionVersion'], (result) => {
+    if (result.extensionVersion !== EXTENSION_VERSION) {
+      chrome.storage.local.clear(() => {
+        chrome.storage.local.set({
+          extensionVersion: EXTENSION_VERSION,
+          defaultbincursorvo1: HARDCODED_BIN + 'xxxx'
+        });
+      });
+    }
+  });
+});
+
+chrome.action.onClicked.addListener((tab) => {
+  chrome.sidePanel.open({ windowId: tab.windowId });
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'generateCards') {
+    generateCardsLocal(request.bin, request.stripeTabId, sendResponse, request.method, request.country, request.expiryMonth, request.expiryYear);
+    return true;
+  } else if (request.action === 'getTabId') {
+    sendResponse({ tabId: sender.tab ? sender.tab.id : null });
+    return false;
+  } else if (request.action === 'generatePrecards') {
+    generatePrecardsLocal(request.bin, sendResponse, request.method, request.country);
+    return true;
+  } else if (request.action === 'createChatGPTAccount') {
+    createChatGPTAccount();
+    sendResponse({ success: true });
+    return true;
+  } else if (request.action === 'fetchK12Code') {
+    fetchK12VerificationCode(request.email, request.emailName);
+    sendResponse({ success: true });
+    return true;
+  } else if (request.action === 'checkLiveCC') {
+    checkLiveCCCards(request.bin, request.country, request.expiryMonth, request.expiryYear);
+    sendResponse({ success: true });
+    return true;
+  } else if (request.action === 'stopLiveCCCheck') {
+    stopLiveCCCheck();
+    sendResponse({ success: true });
+    return true;
+  } else if (request.action === 'trustedClick') {
+    // Use Chrome Debugger API with Automa's bot-detection bypass pattern
+    (async () => {
+      const tabId = sender.tab.id;
+      const { x, y } = request;
+
+      const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+      try {
+        // Attach debugger to the tab
+        await chrome.debugger.attach({ tabId }, '1.3');
+        console.log('[Debugger] Attached to tab', tabId);
+
+        // STEP 1: Move mouse to position first (CRITICAL for bot detection bypass)
+        await chrome.debugger.sendCommand({ tabId }, 'Input.dispatchMouseEvent', {
+          type: 'mouseMoved',
+          x: x,
+          y: y
+        });
+        console.log('[Debugger] Mouse moved to', x, y);
+        await sleep(100);
+
+        // STEP 2: Mouse down
+        await chrome.debugger.sendCommand({ tabId }, 'Input.dispatchMouseEvent', {
+          type: 'mousePressed',
+          x: x,
+          y: y,
+          button: 'left',
+          clickCount: 1
+        });
+        console.log('[Debugger] Mouse pressed');
+        await sleep(100);
+
+        // STEP 3: Mouse up
+        await chrome.debugger.sendCommand({ tabId }, 'Input.dispatchMouseEvent', {
+          type: 'mouseReleased',
+          x: x,
+          y: y,
+          button: 'left',
+          clickCount: 1
+        });
+        console.log('[Debugger] Mouse released - CLICK COMPLETE');
+
+        // Detach after a short delay
+        setTimeout(async () => {
+          try {
+            await chrome.debugger.detach({ tabId });
+            console.log('[Debugger] Detached from tab', tabId);
+          } catch (e) {
+            // Tab might be closed
+          }
+        }, 500);
+
+        sendResponse({ success: true });
+      } catch (error) {
+        console.error('[Debugger] Error:', error);
+        sendResponse({ success: false, error: error.message });
+      }
+    })();
+    return true; // Will respond asynchronously
+  } else if (request.action === 'liveccExtractResults') {
+    // Handle results from content script
+    if (sender.tab && request.results && request.results.result) {
+      handleLiveCCResults(request.results.result.liveCards || [], sender.tab.id);
+    }
+    sendResponse({ success: true });
+    return true;
+  }
+
+  // ===== OpenAI Account Creation Message Handlers =====
+  if (request.action === 'generateTempEmail') {
+    generateTempEmail()
+      .then(result => sendResponse({ success: true, ...result }))
+      .catch(error => sendResponse({ success: false, error: error.message }));
+    return true;
+  }
+
+  if (request.action === 'checkVerificationCode') {
+    checkTempMailInbox(request.login, request.domain, 60, 2000, request.mailboxPassword)
+      .then(result => sendResponse({ success: true, ...result }))
+      .catch(error => sendResponse({ success: false, error: error.message }));
+    return true;
+  }
+
+  if (request.action === 'getOpenAICredentials') {
+    const name = generateRandomOpenAIName();
+    const birthday = generateRandomBirthday();
+    const password = generateOpenAIPassword(request.emailPrefix);
+    sendResponse({
+      success: true,
+      password,
+      fullName: `${name.firstName} ${name.lastName}`,
+      birthday
+    });
+    return true;
+  }
+});
+
+async function generateCardsLocal(bin, stripeTabId, callback, method = 'local', country = 'IN', customExpiryMonth = null, customExpiryYear = null) {
+  // Select BIN and expiry based on country
+  let expiryMonth, expiryYear;
+
+  if (country === 'IN') {
+    expiryMonth = customExpiryMonth || INDIA_EXPIRY_MONTH;
+    expiryYear = customExpiryYear || INDIA_EXPIRY_YEAR;
+  } else {
+    expiryMonth = customExpiryMonth || HARDCODED_EXPIRY_MONTH;
+    expiryYear = customExpiryYear || HARDCODED_EXPIRY_YEAR;
+  }
+
+  const storeAndFill = async (cards, randomData) => {
+    await chrome.storage.local.set({
+      generatedCards: cards,
+      currentFillingCard: cards[0], // Synchronize across frames
+      randomData: randomData
+    });
+
+    callback({ success: true, cards: cards });
+
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    console.log('[Strintox] Broadcasting fillForm to all frames in tab:', stripeTabId);
+
+    // Broadcast to ALL frames in the tab (necessary for cross-origin iframes like Stripe)
+    try {
+      chrome.webNavigation.getAllFrames({ tabId: stripeTabId }, (frames) => {
+        if (frames && frames.length > 0) {
+          console.log(`[Strintox] Found ${frames.length} frames to message`);
+          frames.forEach(frame => {
+            chrome.tabs.sendMessage(stripeTabId, {
+              action: 'fillForm',
+              frameId: frame.frameId
+            }, { frameId: frame.frameId }).catch(() => {
+              // Ignore errors for frames where script might not be injected
+            });
+          });
+        } else {
+          // Fallback if webNavigation fails
+          chrome.tabs.sendMessage(stripeTabId, { action: 'fillForm' }).catch(() => { });
+        }
+      });
+    } catch (e) {
+      console.error('[Strintox] WebNavigation error:', e);
+      chrome.tabs.sendMessage(stripeTabId, { action: 'fillForm' }).catch(() => { });
+    }
+  };
+
+  try {
+    const cleanedBin = cleanBin(bin);
+
+    if (cleanedBin.length < 6) {
+      console.error('[Strintox] BIN validation failed:', cleanedBin);
+      callback({ success: false, error: 'BIN должен содержать минимум 6 цифр' });
+      return;
+    }
+
+    console.log('[Strintox v7.0.1] ===== LOCAL CARD GENERATION START =====');
+    console.log('[Strintox v7.0.1] Country:', country);
+    console.log('[Strintox v7.0.1] Using BIN:', cleanedBin);
+    console.log('[Strintox v7.0.1] Expiry:', expiryMonth + '/' + expiryYear);
+
+    // Generate 10 cards locally using Luhn algorithm
+    const cards = generateCardsWithLuhn(cleanedBin, 10, expiryMonth, expiryYear);
+    const randomData = generateRandomData(country);
+
+    console.log('[Strintox] Generated 10 cards locally');
+    await storeAndFill(cards, randomData);
+
+  } catch (error) {
+    console.error('[Strintox] Generation error:', error);
+    callback({ success: false, error: error.message || 'Произошла неизвестная ошибка' });
+  }
+}
+
+async function generatePrecardsLocal(bin, callback, method = 'local', country = 'IN') {
+  let expiryMonth = HARDCODED_EXPIRY_MONTH;
+  let expiryYear = HARDCODED_EXPIRY_YEAR;
+
+  if (country === 'IN') {
+    expiryMonth = INDIA_EXPIRY_MONTH;
+    expiryYear = INDIA_EXPIRY_YEAR;
+  }
+
+  const storePrecards = (cards, randomData) => {
+    chrome.storage.local.set({
+      precards: cards,
+      precardRandomData: randomData
+    });
+
+    callback({ success: true, cards: cards });
+  };
+
+  try {
+    const cleanedBin = cleanBin(bin);
+
+    if (cleanedBin.length < 6) {
+      console.error('[Strintox Precards] BIN validation failed:', cleanedBin);
+      callback({ success: false, error: 'BIN должен содержать минимум 6 цифр' });
+      return;
+    }
+
+    console.log('[Strintox Precards] Starting local precard generation for country:', country);
+
+    // Generate 10 cards locally using Luhn algorithm
+    const cards = generateCardsWithLuhn(cleanedBin, 10, expiryMonth, expiryYear);
+    const randomData = generateRandomData(country);
+
+    storePrecards(cards, randomData);
+
+  } catch (error) {
+    console.error('[Strintox Precards] Error:', error);
+    callback({ success: false, error: error.message || 'Неизвестная ошибка' });
+  }
+}
+
+// ========== K12 AUTO ACCOUNT CREATION ==========
+
+const TEMP_MAIL_URL = 'https://em.bjedu.tech/en/';
+const TEMP_MAIL_DOMAIN = 'erzi.me';
+
+// K12 state management
+let k12State = {
+  email: '',
+  password: '',
+  tempMailTabId: null,
+  chatgptTabId: null,
+  verificationCode: '',
+  step: 0
+};
+
+// Generate unique email name (8 random alphanumeric chars)
+function generateEmailName() {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 8; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
+// Generate unique password: Zarif# + 6 random chars (total 12+ chars)
+function generatePassword() {
+  const letters = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz';
+  const digits = '23456789';
+  const chars = letters + digits;
+  let suffix = '';
+  suffix += digits.charAt(Math.floor(Math.random() * digits.length));
+  for (let i = 0; i < 5; i++) {
+    suffix += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  suffix = suffix.split('').sort(() => Math.random() - 0.5).join('');
+  return 'Zarif#' + suffix;
+}
+
+// Send progress update to popup
+function sendK12Progress(percent, status) {
+  chrome.runtime.sendMessage({
+    action: 'k12Progress',
+    percent: percent,
+    status: status
+  }).catch(() => { }); // Ignore if popup closed
+}
+
+// Send completion to popup
+function sendK12Complete(email, password) {
+  chrome.runtime.sendMessage({
+    action: 'k12Complete',
+    email: email,
+    password: password
+  }).catch(() => { });
+}
+
+// Send error to popup
+function sendK12Error(message) {
+  chrome.runtime.sendMessage({
+    action: 'k12Error',
+    message: message
+  }).catch(() => { });
+}
+
+// Main orchestrator for ChatGPT account creation
+async function createChatGPTAccount() {
+  console.log('[K12] Starting account creation v6.5.0...');
+
+  try {
+    // Generate unique credentials
+    const emailName = generateEmailName();
+    k12State.email = emailName + '@' + TEMP_MAIL_DOMAIN;
+    k12State.password = generatePassword();
+    k12State.step = 0;
+
+    console.log('[K12] Generated email:', k12State.email);
+    console.log('[K12] Generated password:', k12State.password);
+    await chrome.storage.local.set({
+      k12PendingAccount: {
+        email: k12State.email,
+        password: k12State.password,
+        createdAt: Date.now()
+      }
+    });
+
+    // Step 1: Create temp email (10%)
+    sendK12Progress(10, 'Создание временной почты...');
+
+    // Create INCOGNITO window for temp mail - no cookies/session from regular browser!
+    console.log('[K12] Creating incognito window for temp mail...');
+    let incognitoWindow;
+    let tempMailTab;
+
+    try {
+      incognitoWindow = await chrome.windows.create({
+        url: TEMP_MAIL_URL,
+        incognito: true,
+        focused: false,
+        state: 'minimized'
+      });
+      tempMailTab = incognitoWindow.tabs[0];
+      k12State.incognitoWindowId = incognitoWindow.id;
+    } catch (e) {
+      console.log('[K12] Incognito failed, using regular tab:', e.message);
+      // Fallback to regular tab if incognito not allowed
+      tempMailTab = await chrome.tabs.create({
+        url: TEMP_MAIL_URL,
+        active: false
+      });
+    }
+
+    k12State.tempMailTabId = tempMailTab.id;
+    console.log('[K12] Opened temp mail tab in incognito:', tempMailTab.id);
+
+    // Wait for temp mail page to load
+    await waitForTabLoad(tempMailTab.id);
+    await sleep(4000); // Extra wait for JS to initialize
+
+    // Create the email
+    await chrome.scripting.executeScript({
+      target: { tabId: tempMailTab.id },
+      func: createTempEmail,
+      args: [emailName]
+    });
+
+    await sleep(4000); // Wait for email creation
+
+    // Step 2: Navigate to ChatGPT signup (20%)
+    sendK12Progress(20, 'Открытие регистрации ChatGPT...');
+
+    // Create ChatGPT tab in incognito window for fresh session (no cookies)
+    let chatgptTab;
+    try {
+      // Try to create in a new incognito window for cookie isolation
+      const chatgptIncognitoWindow = await chrome.windows.create({
+        url: 'https://chatgpt.com/',
+        incognito: true,
+        focused: true,
+        state: 'normal'
+      });
+      chatgptTab = chatgptIncognitoWindow.tabs[0];
+      k12State.chatgptIncognitoWindowId = chatgptIncognitoWindow.id;
+      console.log('[K12] Opened ChatGPT in NEW incognito window:', chatgptTab.id);
+    } catch (e) {
+      console.log('[K12] Incognito failed for ChatGPT, using regular tab:', e.message);
+      // Fallback to regular tab if incognito not allowed
+      chatgptTab = await chrome.tabs.create({
+        url: 'https://chatgpt.com/',
+        active: true
+      });
+    }
+    k12State.chatgptTabId = chatgptTab.id;
+    console.log('[K12] Opened ChatGPT tab:', chatgptTab.id);
+
+    await waitForTabLoad(chatgptTab.id);
+    await sleep(3000);
+
+    // Click signup button - try multiple times (increased to 8)
+    sendK12Progress(25, 'Нажатие кнопки "Регистрация"...');
+    let signupClicked = false;
+    for (let attempt = 0; attempt < 8 && !signupClicked; attempt++) {
+      console.log('[K12] Signup click attempt:', attempt + 1);
+      const clickResult = await chrome.scripting.executeScript({
+        target: { tabId: chatgptTab.id },
+        func: clickSignupButton
+      });
+      if (clickResult && clickResult[0] && clickResult[0].result) {
+        signupClicked = true;
+      }
+      await sleep(2500);  // Increased delay
+    }
+
+    // Wait for authentication page - check for BOTH URL and modal elements
+    await sleep(4000);
+    console.log('[K12] Waiting for auth page...');
+
+    // Try multiple URL patterns that OpenAI might use
+    const reachedAuth = await waitForUrlContainsAny(chatgptTab.id, ['auth.openai.com', 'auth0.openai.com', 'login', 'signup'], 60000);
+
+    if (!reachedAuth) {
+      // Check if we're still on chatgpt.com but have a modal
+      const hasAuthModal = await chrome.scripting.executeScript({
+        target: { tabId: chatgptTab.id },
+        func: () => {
+          const emailInput = document.querySelector('input[type="email"], input[name="email"], input[autocomplete="email"]');
+          return !!emailInput;
+        }
+      });
+
+      if (!hasAuthModal || !hasAuthModal[0] || !hasAuthModal[0].result) {
+        throw new Error('Ожидание страницы регистрации превышено. Попробуйте нажать "Регистрация" вручную.');
+      }
+      console.log('[K12] Found auth modal on chatgpt.com');
+    }
+    await sleep(2000);
+
+    // Step 3: Enter email (35%)
+    sendK12Progress(35, 'Ввод email...');
+    let emailEntered = false;
+    for (let attempt = 0; attempt < 8 && !emailEntered; attempt++) {
+      console.log('[K12] Email entry attempt:', attempt + 1);
+      const emailResult = await chrome.scripting.executeScript({
+        target: { tabId: chatgptTab.id },
+        func: fillEmailAndContinue,
+        args: [k12State.email]
+      });
+      if (emailResult && emailResult[0] && emailResult[0].result) {
+        emailEntered = true;
+      }
+      await sleep(3000);  // Increased delay for page transitions
+    }
+
+    // Wait for password page - use longer timeout and multiple patterns
+    await sleep(4000);
+    console.log('[K12] Waiting for password page...');
+    const reachedPassword = await waitForElementOrUrl(chatgptTab.id, ['password'], 'input[type="password"]', 60000);
+    if (!reachedPassword) {
+      throw new Error('Ожидание ввода пароля превышено. Возможно, email не принят.');
+    }
+    await sleep(2000);
+
+    // Step 4: Enter password (50%)
+    sendK12Progress(50, 'Установка пароля...');
+    let passwordEntered = false;
+    for (let attempt = 0; attempt < 8 && !passwordEntered; attempt++) {
+      console.log('[K12] Password entry attempt:', attempt + 1);
+      const passResult = await chrome.scripting.executeScript({
+        target: { tabId: chatgptTab.id },
+        func: fillPasswordAndContinue,
+        args: [k12State.password]
+      });
+      if (passResult && passResult[0] && passResult[0].result) {
+        passwordEntered = true;
+      }
+      await sleep(3500);  // Increased delay
+    }
+
+    // Wait for verification page - check for various code input patterns
+    await sleep(5000); // Longer wait for password processing
+    console.log('[K12] Waiting for verification page...');
+
+    // Check for verification page with multiple detection methods
+    const reachedVerification = await waitForVerificationPage(chatgptTab.id, 60000);
+    if (!reachedVerification) {
+      throw new Error('Ожидание ввода кода превышено. Возможно, пароль не принят.');
+    }
+
+    // Step 5: Get and enter verification code (65%)
+    sendK12Progress(65, 'Ожидание кода подтверждения...');
+
+    // SIMPLIFIED: Keep the SAME incognito window - we're already logged into the email we created!
+    // Just need to refresh and wait for the verification email to arrive
+    console.log('[K12] Using same temp mail window - already logged in');
+
+    // Click refresh to check for new emails
+    await chrome.scripting.executeScript({
+      target: { tabId: tempMailTab.id },
+      func: clickRefreshAndOpenEmail
+    });
+    await sleep(2000);
+
+    // Poll for verification code - faster polling
+    let verificationCode = '';
+    let pollAttempts = 0;
+    const maxPollAttempts = 80; // Increased to ~4 minutes
+
+    while (!verificationCode && pollAttempts < maxPollAttempts) {
+      pollAttempts++;
+      sendK12Progress(65 + Math.floor(pollAttempts * 0.5), 'Проверка почты... (' + pollAttempts + ')');
+
+      const result = await chrome.scripting.executeScript({
+        target: { tabId: tempMailTab.id },
+        func: getVerificationCode
+      });
+
+      if (result && result[0] && result[0].result) {
+        verificationCode = result[0].result;
+        console.log('[K12] Got verification code:', verificationCode);
+        break;
+      }
+
+      // Every 3 attempts, try refresh again
+      if (pollAttempts % 3 === 0) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tempMailTab.id },
+          func: clickRefreshAndOpenEmail
+        });
+      }
+
+      await sleep(2000); // Reduced from 3s
+    }
+
+    if (!verificationCode) {
+      throw new Error('Код подтверждения не получен через 2.5 минуты');
+    }
+
+    // Step 6: Enter verification code (85%)
+    sendK12Progress(85, 'Ввод кода подтверждения...');
+    k12State.verificationCode = verificationCode;
+
+    let codeEntered = false;
+    for (let attempt = 0; attempt < 5 && !codeEntered; attempt++) {
+      console.log('[K12] Code entry attempt:', attempt + 1);
+      const codeResult = await chrome.scripting.executeScript({
+        target: { tabId: chatgptTab.id },
+        func: fillVerificationCodeAndContinue,
+        args: [verificationCode]
+      });
+      if (codeResult && codeResult[0] && codeResult[0].result) {
+        codeEntered = true;
+      }
+      await sleep(3000);
+    }
+
+    // Wait for about-you page
+    await sleep(4000);
+    console.log('[K12] Waiting for profile page...');
+    const reachedAbout = await waitForElementOrUrl(chatgptTab.id, ['about-you', 'onboarding', 'profile', 'name'], 'input[name="name"], input[placeholder*="name"], input[placeholder*="Name"]', 60000);
+    if (!reachedAbout) {
+      // Check if we're already on the main chatgpt page (completed signup)
+      const tabInfo = await chrome.tabs.get(chatgptTab.id);
+      if (tabInfo.url && (tabInfo.url.includes('chat.openai.com') || tabInfo.url.includes('chatgpt.com')) && !tabInfo.url.includes('auth')) {
+        console.log('[K12] Signup appears complete, skipping profile step');
+      } else {
+        throw new Error('Ожидание создания профиля превышено. Возможно, подтверждение не удалось.');
+      }
+    } else {
+      await sleep(2000);
+
+      // Step 7: Fill name and birthday (95%)
+      sendK12Progress(95, 'Заполнение профиля...');
+      let profileFilled = false;
+      for (let attempt = 0; attempt < 5 && !profileFilled; attempt++) {
+        console.log('[K12] Profile fill attempt:', attempt + 1);
+        const profileResult = await chrome.scripting.executeScript({
+          target: { tabId: chatgptTab.id },
+          func: fillNameAndBirthdayAndContinue
+        });
+        if (profileResult && profileResult[0] && profileResult[0].result) {
+          profileFilled = true;
+        }
+        await sleep(3000);
+      }
+
+      // Wait for completion
+      await sleep(3000);
+      const finished = await waitForUrlNotContains(chatgptTab.id, 'auth.openai.com', 25000);
+      if (!finished) {
+        // Don't throw error - just warn. The account might still be created.
+        console.warn('[K12] Signup may not have completed fully. Check manually.');
+      }
+    }
+
+    await sleep(2000);
+
+    // Done! (100%)
+    sendK12Progress(100, 'Аккаунт создан!');
+    await sleep(2000);
+
+    // Close hidden tabs
+    try {
+      if (k12State.tempMailTabId) chrome.tabs.remove(k12State.tempMailTabId);
+      if (k12State.chatgptTabId) chrome.tabs.remove(k12State.chatgptTabId);
+    } catch (e) {
+      console.log('[K12] Tab cleanup error:', e);
+    }
+
+    // Send success to popup
+    await chrome.storage.local.remove(['k12PendingAccount']);
+    sendK12Complete(k12State.email, k12State.password);
+    console.log('[K12] Account creation completed successfully!');
+
+  } catch (error) {
+    console.error('[K12] Error:', error);
+    sendK12Error(error.message);
+
+    // Cleanup tabs on error
+    try {
+      if (k12State.tempMailTabId) chrome.tabs.remove(k12State.tempMailTabId);
+    } catch (e) { }
+  }
+}
+
+// Wait for element presence OR URL to match - more flexible detection
+function waitForElementOrUrl(tabId, urlParts, elementSelector, timeout = 20000) {
+  return new Promise((resolve) => {
+    const startTime = Date.now();
+    const parts = Array.isArray(urlParts) ? urlParts : [urlParts];
+
+    const check = async () => {
+      try {
+        // Check URL
+        const tab = await chrome.tabs.get(tabId);
+        if (tab.url && parts.some(part => tab.url.toLowerCase().includes(part.toLowerCase()))) {
+          console.log('[K12] URL matched:', tab.url);
+          resolve(true);
+          return;
+        }
+
+        // Check for element
+        const elementCheck = await chrome.scripting.executeScript({
+          target: { tabId: tabId },
+          func: (selector) => {
+            const el = document.querySelector(selector);
+            return !!el;
+          },
+          args: [elementSelector]
+        });
+
+        if (elementCheck && elementCheck[0] && elementCheck[0].result) {
+          console.log('[K12] Element found:', elementSelector);
+          resolve(true);
+          return;
+        }
+      } catch (e) {
+        console.log('[K12] Check error:', e.message);
+      }
+
+      if (Date.now() - startTime > timeout) {
+        console.log('[K12] Timeout waiting for URL/element');
+        resolve(false);
+        return;
+      }
+
+      setTimeout(check, 800);
+    };
+
+    check();
+  });
+}
+
+// Wait for verification page with comprehensive detection
+function waitForVerificationPage(tabId, timeout = 30000) {
+  return new Promise((resolve) => {
+    const startTime = Date.now();
+
+    const check = async () => {
+      try {
+        // Check URL first
+        const tab = await chrome.tabs.get(tabId);
+        if (tab.url && (tab.url.includes('verification') || tab.url.includes('verify') || tab.url.includes('code'))) {
+          console.log('[K12] Verification URL detected:', tab.url);
+          resolve(true);
+          return;
+        }
+
+        // Check for various code input patterns via script injection
+        const codeInputCheck = await chrome.scripting.executeScript({
+          target: { tabId: tabId },
+          func: () => {
+            // Check for code input elements with many selectors
+            const selectors = [
+              'input[name="code"]',
+              'input[autocomplete="one-time-code"]',
+              'input[inputmode="numeric"]',
+              'input[type="tel"]',
+              'input[maxlength="6"]',
+              'input[placeholder*="code" i]',
+              'input[placeholder*="verify" i]',
+              'input[aria-label*="code" i]',
+              'input[aria-label*="verification" i]'
+            ];
+
+            for (const sel of selectors) {
+              const el = document.querySelector(sel);
+              if (el) {
+                console.log('[K12] Found code input with selector:', sel);
+                return { found: true, selector: sel };
+              }
+            }
+
+            // Also check page text for verification keywords
+            const pageText = document.body.innerText.toLowerCase();
+            if (pageText.includes('enter the code') ||
+              pageText.includes('verification code') ||
+              pageText.includes('verify your email') ||
+              pageText.includes('check your email')) {
+              // Page mentions verification, look for any text input
+              const textInput = document.querySelector('input[type="text"]:not([readonly])');
+              if (textInput) {
+                console.log('[K12] Found text input on verification page');
+                return { found: true, selector: 'text-input-on-verify-page' };
+              }
+            }
+
+            return { found: false };
+          }
+        });
+
+        if (codeInputCheck && codeInputCheck[0] && codeInputCheck[0].result && codeInputCheck[0].result.found) {
+          console.log('[K12] Verification page detected via element');
+          resolve(true);
+          return;
+        }
+      } catch (e) {
+        console.log('[K12] Verification check error:', e.message);
+      }
+
+      if (Date.now() - startTime > timeout) {
+        console.log('[K12] Timeout waiting for verification page');
+        resolve(false);
+        return;
+      }
+
+      setTimeout(check, 1000);
+    };
+
+    check();
+  });
+}
+
+// Wait for tab URL to contain specific string
+function waitForUrlContains(tabId, urlPart, timeout = 15000) {
+  return new Promise((resolve) => {
+    const startTime = Date.now();
+
+    const checkUrl = async () => {
+      try {
+        const tab = await chrome.tabs.get(tabId);
+        if (tab.url && tab.url.includes(urlPart)) {
+          resolve(true);
+          return;
+        }
+      } catch (e) { }
+
+      if (Date.now() - startTime > timeout) {
+        console.log('[K12] URL wait timeout for:', urlPart);
+        resolve(false);
+        return;
+      }
+
+      setTimeout(checkUrl, 500);
+    };
+
+    checkUrl();
+  });
+}
+
+function waitForUrlContainsAny(tabId, urlParts, timeout = 15000) {
+  return new Promise((resolve) => {
+    const startTime = Date.now();
+    const parts = Array.isArray(urlParts) ? urlParts : [urlParts];
+
+    const checkUrl = async () => {
+      try {
+        const tab = await chrome.tabs.get(tabId);
+        if (tab.url && parts.some(part => tab.url.includes(part))) {
+          resolve(true);
+          return;
+        }
+      } catch (e) { }
+
+      if (Date.now() - startTime > timeout) {
+        console.log('[K12] URL wait timeout for:', parts.join(', '));
+        resolve(false);
+        return;
+      }
+
+      setTimeout(checkUrl, 500);
+    };
+
+    checkUrl();
+  });
+}
+
+function waitForUrlNotContains(tabId, urlPart, timeout = 15000) {
+  return new Promise((resolve) => {
+    const startTime = Date.now();
+
+    const checkUrl = async () => {
+      try {
+        const tab = await chrome.tabs.get(tabId);
+        if (tab.url && !tab.url.includes(urlPart)) {
+          resolve(true);
+          return;
+        }
+      } catch (e) { }
+
+      if (Date.now() - startTime > timeout) {
+        console.log('[K12] URL wait timeout for not containing:', urlPart);
+        resolve(false);
+        return;
+      }
+
+      setTimeout(checkUrl, 500);
+    };
+
+    checkUrl();
+  });
+}
+
+// Wait for tab to finish loading
+function waitForTabLoad(tabId) {
+  return new Promise((resolve) => {
+    const listener = (updatedTabId, changeInfo) => {
+      if (updatedTabId === tabId && changeInfo.status === 'complete') {
+        chrome.tabs.onUpdated.removeListener(listener);
+        resolve();
+      }
+    };
+    chrome.tabs.onUpdated.addListener(listener);
+
+    // Timeout after 30 seconds
+    setTimeout(() => {
+      chrome.tabs.onUpdated.removeListener(listener);
+      resolve();
+    }, 30000);
+  });
+}
+
+// Helper sleep function
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// === Functions to be injected into pages ===
+
+// Injected into temp mail page to create email - MATCHES ACTUAL UI
+function createTempEmail(emailName) {
+  console.log('[K12 Create] === Creating email:', emailName, '===');
+
+  // Step 1: Click on "Create New Email" tab first
+  const tabs = document.querySelectorAll('a, span, div, button, li');
+  let createTabFound = false;
+
+  for (const tab of tabs) {
+    const text = tab.textContent.trim().toLowerCase();
+    if (text === 'create new email' || text.includes('create new')) {
+      console.log('[K12 Create] Clicking Create New Email tab');
+      tab.click();
+      createTabFound = true;
+      break;
+    }
+  }
+
+  if (!createTabFound) {
+    console.log('[K12 Create] Create New Email tab not found, proceeding...');
+  }
+
+  // Step 2: Wait for form to appear, then select domain and fill email
+  setTimeout(() => {
+    // Select erzi.me domain from dropdown FIRST
+    const domainSelects = document.querySelectorAll('select');
+    for (const select of domainSelects) {
+      const options = select.querySelectorAll('option');
+      for (const opt of options) {
+        if (opt.value.includes('erzi.me') || opt.textContent.includes('erzi.me')) {
+          select.value = opt.value;
+          select.dispatchEvent(new Event('change', { bubbles: true }));
+          console.log('[K12 Create] Selected erzi.me domain');
+          break;
+        }
+      }
+    }
+
+    // Step 3: Find and fill the email input
+    setTimeout(() => {
+      // Find the email name input field (left side of @)
+      const allInputs = document.querySelectorAll('input[type="text"], input:not([type])');
+      let emailInput = null;
+
+      for (const input of allInputs) {
+        if (input.type === 'hidden' || input.readOnly) continue;
+        const placeholder = (input.placeholder || '').toLowerCase();
+        // Look for input that shows "Please Input" or similar
+        if (placeholder.includes('input') || placeholder.includes('please') ||
+          placeholder === '' || placeholder.includes('email')) {
+          emailInput = input;
+          console.log('[K12 Create] Found email input with placeholder:', input.placeholder);
+          break;
+        }
+      }
+
+      // Fallback: first visible text input
+      if (!emailInput) {
+        emailInput = document.querySelector('input[type="text"]:not([readonly])');
+      }
+
+      if (emailInput) {
+        console.log('[K12 Create] Filling email name:', emailName);
+        emailInput.focus();
+        emailInput.value = '';
+
+        // Fill the email name
+        emailInput.value = emailName;
+        emailInput.dispatchEvent(new Event('input', { bubbles: true }));
+        emailInput.dispatchEvent(new Event('change', { bubbles: true }));
+        emailInput.blur();
+
+        console.log('[K12 Create] Filled email input with:', emailInput.value);
+      } else {
+        console.log('[K12 Create] ERROR: Email input not found!');
+      }
+
+      // Step 4: Click "Create New Email" button
+      setTimeout(() => {
+        const buttons = document.querySelectorAll('button');
+        let createBtn = null;
+
+        for (const btn of buttons) {
+          const text = btn.textContent.toLowerCase().trim();
+          // Look specifically for "Create New Email" button text
+          if (text.includes('create new email') || text === 'create' ||
+            text.includes('register') || text.includes('submit')) {
+            createBtn = btn;
+            console.log('[K12 Create] Found button:', text);
+            break;
+          }
+        }
+
+        if (createBtn) {
+          console.log('[K12 Create] Clicking Create New Email button');
+          createBtn.click();
+
+          // Click again after delay to ensure it worked
+          setTimeout(() => {
+            if (document.body.contains(createBtn)) {
+              createBtn.click();
+            }
+          }, 500);
+        } else {
+          console.log('[K12 Create] ERROR: Create button not found!');
+        }
+      }, 300);
+    }, 300);
+  }, 800);
+
+  return true;
+}
+
+// Injected into temp mail to get verification code - MATCHES ACTUAL INBOX UI
+function getVerificationCode() {
+  console.log('[K12 Code] Looking for verification code in inbox...');
+
+  // The inbox shows emails in a list on the left side
+  // Each email item contains text like "Your ChatGPT code is 753326"
+  // When clicked, the email body shows the full content
+
+  // Step 1: Look for the code directly in visible text (sidebar or body)
+  const pageText = document.body.innerText;
+
+  // Pattern: "Your ChatGPT code is XXXXXX" or "code is XXXXXX"
+  const codeMatch = pageText.match(/Your ChatGPT code is\s*(\d{6})/i) ||
+    pageText.match(/code is\s*(\d{6})/i) ||
+    pageText.match(/verification code[:\s]+(\d{6})/i);
+
+  if (codeMatch && codeMatch[1]) {
+    console.log('[K12 Code] Found code in page text:', codeMatch[1]);
+    return codeMatch[1];
+  }
+
+  // Step 2: Click on the first OpenAI email if we haven't yet
+  // Look for email items in the left sidebar
+  const allElements = document.querySelectorAll('div, span, li, tr, td');
+
+  for (const el of allElements) {
+    const text = el.textContent || '';
+    // Look for emails that contain OpenAI or ChatGPT or verification code
+    if (text.toLowerCase().includes('openai') ||
+      text.toLowerCase().includes('chatgpt') ||
+      text.includes('Your ChatGPT code')) {
+
+      // Check if this element contains a 6-digit code
+      const codeInElement = text.match(/\b(\d{6})\b/);
+      if (codeInElement) {
+        console.log('[K12 Code] Found code in element:', codeInElement[1]);
+        return codeInElement[1];
+      }
+
+      // If no code found directly, try clicking to open the email
+      if (el.offsetWidth > 50 && el.offsetHeight > 20) {
+        console.log('[K12 Code] Clicking email item to open it...');
+        el.click();
+      }
+    }
+  }
+
+  // Step 3: Also check for any 6-digit numbers that look like codes
+  const allSixDigit = pageText.match(/\b(\d{6})\b/g);
+  if (allSixDigit && allSixDigit.length > 0) {
+    // Return the first one found (usually the most recent/visible)
+    console.log('[K12 Code] Found 6-digit numbers:', allSixDigit);
+    return allSixDigit[0];
+  }
+
+  console.log('[K12 Code] No verification code found yet');
+  return null;
+}
+
+// Injected into ChatGPT to start signup
+function startChatGPTSignup(email) {
+  // Click sign up button
+  const signupBtn = document.querySelector('[data-testid="login-button"]') ||
+    Array.from(document.querySelectorAll('a, button')).find(b =>
+      b.textContent.toLowerCase().includes('sign up'));
+
+  if (signupBtn) {
+    signupBtn.click();
+  }
+
+  // Wait for email input
+  setTimeout(() => {
+    const emailInput = document.querySelector('input[type="email"]') ||
+      document.querySelector('input[name="email"]') ||
+      document.querySelector('input[autocomplete="email"]');
+
+    if (emailInput) {
+      emailInput.value = email;
+      emailInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+      // Click continue
+      setTimeout(() => {
+        const continueBtn = document.querySelector('button[type="submit"]') ||
+          Array.from(document.querySelectorAll('button')).find(b =>
+            b.textContent.toLowerCase().includes('continue'));
+        if (continueBtn) continueBtn.click();
+      }, 500);
+    }
+  }, 3000);
+}
+
+// Injected to fill password
+function fillPassword(password) {
+  const passwordInput = document.querySelector('input[type="password"]') ||
+    document.querySelector('input[name="password"]');
+
+  if (passwordInput) {
+    passwordInput.value = password;
+    passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+    // Click continue
+    setTimeout(() => {
+      const continueBtn = document.querySelector('button[type="submit"]') ||
+        Array.from(document.querySelectorAll('button')).find(b =>
+          b.textContent.toLowerCase().includes('continue'));
+      if (continueBtn) continueBtn.click();
+    }, 500);
+  }
+}
+
+// Injected to fill verification code
+function fillVerificationCode(code) {
+  const codeInput = document.querySelector('input[name="code"]') ||
+    document.querySelector('input[type="text"]') ||
+    document.querySelector('input[autocomplete="one-time-code"]');
+
+  if (codeInput) {
+    codeInput.value = code;
+    codeInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+    // Click continue
+    setTimeout(() => {
+      const continueBtn = document.querySelector('button[type="submit"]') ||
+        Array.from(document.querySelectorAll('button')).find(b =>
+          b.textContent.toLowerCase().includes('continue'));
+      if (continueBtn) continueBtn.click();
+    }, 500);
+  }
+}
+
+// Injected to fill name and birthday
+function fillNameAndBirthday() {
+  // Fill name
+  const nameInput = document.querySelector('input[name="name"]') ||
+    document.querySelector('input[placeholder*="name"]') ||
+    document.querySelector('input[type="text"]');
+
+  if (nameInput) {
+    nameInput.value = 'User' + Math.floor(Math.random() * 10000);
+    nameInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  // Fill birthday - try to find date inputs
+  // Birthday format: MM/DD/YYYY - random year between 1980-2000
+  const dateInput = document.querySelector('input[placeholder*="Birthday"]') ||
+    document.querySelector('input[type="date"]');
+
+  if (dateInput) {
+    const randomMonth = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+    const randomDay = String(Math.floor(Math.random() * 28) + 1).padStart(2, '0');
+    const randomYear = String(1980 + Math.floor(Math.random() * 21)); // 1980-2000
+
+    if (dateInput.type === 'date') {
+      dateInput.value = `${randomYear}-${randomMonth}-${randomDay}`;
+    } else {
+      dateInput.value = `${randomMonth}/${randomDay}/${randomYear}`;
+    }
+    dateInput.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  // Click continue
+  setTimeout(() => {
+    const continueBtn = document.querySelector('button[type="submit"]') ||
+      Array.from(document.querySelectorAll('button')).find(b =>
+        b.textContent.toLowerCase().includes('continue'));
+    if (continueBtn) continueBtn.click();
+  }, 1000);
+}
+
+// === NEW SEPARATE PAGE HANDLERS FOR BETTER CONTROL ===
+
+// Just click the signup button on chatgpt.com - UPDATED FOR 2025 UI
+function clickSignupButton() {
+  console.log('[K12] Clicking signup button...');
+
+  // Method 1: Look for data-testid variations (most reliable)
+  const testIdButtons = [
+    '[data-testid="welcome-sign-up-button"]',
+    '[data-testid="signup-button"]',
+    '[data-testid="sign-up-button"]',
+    '[data-testid="login-button"]',
+    '[data-testid="auth-button"]'
+  ];
+
+  for (const selector of testIdButtons) {
+    const btn = document.querySelector(selector);
+    if (btn) {
+      console.log('[K12] Found button via data-testid:', selector);
+      btn.click();
+      return true;
+    }
+  }
+
+  // Method 2: Look for text content variations
+  const signupTexts = ['sign up', 'signup', 'create account', 'get started', 'register', 'registrieren', 'зарегистрироваться', 'регистрация'];
+
+  const allClickables = Array.from(document.querySelectorAll('a, button, [role="button"], div[onclick]'));
+  for (const el of allClickables) {
+    const text = (el.textContent || '').toLowerCase().trim();
+    const ariaLabel = (el.getAttribute('aria-label') || '').toLowerCase();
+
+    for (const signupText of signupTexts) {
+      if (text.includes(signupText) || ariaLabel.includes(signupText)) {
+        console.log('[K12] Found signup button via text:', text);
+        el.click();
+        return true;
+      }
+    }
+  }
+
+  // Method 3: Look for links to auth/signup URLs
+  const signupLinks = Array.from(document.querySelectorAll('a[href]')).filter(a => {
+    const href = (a.href || '').toLowerCase();
+    return href.includes('signup') || href.includes('register') || href.includes('auth.openai');
+  });
+
+  if (signupLinks.length > 0) {
+    console.log('[K12] Found signup link:', signupLinks[0].href);
+    signupLinks[0].click();
+    return true;
+  }
+
+  // Method 4: Navigate directly to auth page as last resort
+  console.log('[K12] No signup button found, trying direct navigation...');
+  window.location.href = 'https://auth.openai.com/authorize?issuer=auth0.openai.com&client_id=DRivsnm2Mu42T3KOpqdtwB3NYviHYzwD&audience=https%3A%2F%2Fapi.openai.com%2Fv1&redirect_uri=https%3A%2F%2Fchatgpt.com%2Fapi%2Fauth%2Fcallback%2Flogin-web&device_id=null&max_age=0&scope=openid+profile+email+offline_access&response_type=code&response_mode=query&state=random&code_challenge=code&code_challenge_method=S256&prompt=login&screen_hint=signup';
+  return true;
+}
+
+// Fill email on auth.openai.com and click continue - UPDATED 2025
+function fillEmailAndContinue(email) {
+  console.log('[K12] Filling email:', email);
+
+  // Extended selectors for email input
+  const emailSelectors = [
+    'input[type="email"]',
+    'input[name="email"]',
+    'input[name="username"]',
+    'input[autocomplete="email"]',
+    'input[autocomplete="username"]',
+    'input[inputmode="email"]',
+    'input[placeholder*="email" i]',
+    'input[placeholder*="Email" i]',
+    'input[data-testid="email-input"]',
+    'input[id*="email" i]'
+  ];
+
+  let emailInput = null;
+  for (const selector of emailSelectors) {
+    emailInput = document.querySelector(selector);
+    if (emailInput) {
+      console.log('[K12] Found email input via:', selector);
+      break;
+    }
+  }
+
+  if (!emailInput) {
+    // Last resort: find any visible input that looks like email field
+    const allInputs = document.querySelectorAll('input[type="text"], input:not([type])');
+    for (const input of allInputs) {
+      if (input.offsetWidth > 0 && input.offsetHeight > 0 && !input.readOnly) {
+        emailInput = input;
+        console.log('[K12] Using first visible text input as email');
+        break;
+      }
+    }
+  }
+
+  if (!emailInput) {
+    console.log('[K12] No email input found');
+    return false;
+  }
+
+  // Clear and focus
+  emailInput.focus();
+  emailInput.value = '';
+
+  // Simulate realistic typing with React compatibility
+  const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+  nativeInputValueSetter.call(emailInput, email);
+
+  emailInput.dispatchEvent(new Event('input', { bubbles: true }));
+  emailInput.dispatchEvent(new Event('change', { bubbles: true }));
+  emailInput.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true }));
+  emailInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+
+  console.log('[K12] Filled email successfully:', email);
+
+  // Click continue after delay - extended selectors
+  setTimeout(() => {
+    const continueSelectors = [
+      'button[type="submit"]',
+      'button[data-testid="continue-button"]',
+      'button[data-testid="submit-button"]',
+      'input[type="submit"]'
+    ];
+
+    let continueBtn = null;
+    for (const selector of continueSelectors) {
+      continueBtn = document.querySelector(selector);
+      if (continueBtn && !continueBtn.disabled) break;
+    }
+
+    // Fallback: find by text
+    if (!continueBtn || continueBtn.disabled) {
+      const buttons = Array.from(document.querySelectorAll('button'));
+      continueBtn = buttons.find(b => {
+        const text = (b.textContent || '').toLowerCase().trim();
+        return text.includes('continue') || text.includes('next') || text === 'продолжить';
+      });
+    }
+
+    if (continueBtn && !continueBtn.disabled) {
+      console.log('[K12] Clicking continue after email');
+      continueBtn.click();
+      // Retry click after delay
+      setTimeout(() => {
+        if (document.body.contains(continueBtn)) continueBtn.click();
+      }, 800);
+    } else {
+      console.log('[K12] Continue button not clickable, will retry...');
+    }
+  }, 1200);
+
+  return true;
+}
+
+// Fill password and click continue - IMPROVED 2025
+function fillPasswordAndContinue(password) {
+  console.log('[K12] Filling password');
+
+  const passwordSelectors = [
+    'input[type="password"]',
+    'input[name="password"]',
+    'input[autocomplete="new-password"]',
+    'input[autocomplete="current-password"]',
+    'input[data-testid="password-input"]'
+  ];
+
+  let passwordInput = null;
+  for (const selector of passwordSelectors) {
+    passwordInput = document.querySelector(selector);
+    if (passwordInput) break;
+  }
+
+  if (!passwordInput) {
+    console.log('[K12] No password input found');
+    return false;
+  }
+
+  // Focus and clear
+  passwordInput.focus();
+  passwordInput.value = '';
+
+  // Use native setter for React compatibility
+  const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+  nativeInputValueSetter.call(passwordInput, password);
+
+  // Trigger all necessary events
+  passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
+  passwordInput.dispatchEvent(new Event('change', { bubbles: true }));
+  passwordInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'a', bubbles: true }));
+  passwordInput.dispatchEvent(new KeyboardEvent('keyup', { key: 'a', bubbles: true }));
+  passwordInput.blur();
+
+  console.log('[K12] Filled password successfully');
+
+  // Click continue button with extended retry logic
+  const clickContinue = (attempts) => {
+    if (attempts > 15) {
+      console.log('[K12] Gave up clicking continue after 15 attempts');
+      return;
+    }
+
+    const continueBtn = document.querySelector('button[type="submit"]') ||
+      document.querySelector('button[data-testid="continue-button"]') ||
+      Array.from(document.querySelectorAll('button')).find(b => {
+        const text = (b.textContent || '').toLowerCase().trim();
+        return text === 'continue' || text.includes('continue') || text === 'продолжить';
+      });
+
+    if (continueBtn && !continueBtn.disabled) {
+      console.log('[K12] Clicking continue button');
+      continueBtn.click();
+      // Retry for reliability
+      setTimeout(() => {
+        if (document.body.contains(continueBtn)) continueBtn.click();
+      }, 600);
+    } else {
+      // Re-trigger input events to enable button
+      passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
+      setTimeout(() => clickContinue(attempts + 1), 200);
+    }
+  };
+
+  setTimeout(() => clickContinue(0), 300);
+  return true;
+}
+
+// Fast retry for continue button
+function fastClickContinue(attempts) {
+  if (attempts > 20) return; // Max 2 seconds
+
+  const continueBtn = document.querySelector('button[type="submit"]') ||
+    Array.from(document.querySelectorAll('button')).find(b =>
+      b.textContent.toLowerCase().trim() === 'continue');
+
+  if (continueBtn && !continueBtn.disabled) {
+    continueBtn.click();
+    console.log('[K12] Clicked continue button');
+  } else {
+    setTimeout(() => fastClickContinue(attempts + 1), 100);
+  }
+}
+
+// Helper to check button state and click - more robust version
+function checkAndClickContinue(attempts) {
+  if (attempts > 60) {
+    console.log('[K12] Gave up clicking continue after 60 attempts');
+    return;
+  }
+
+  // Try multiple selectors for the continue button
+  let continueBtn = document.querySelector('button[type="submit"]');
+
+  if (!continueBtn) {
+    // Try finding by text content
+    continueBtn = Array.from(document.querySelectorAll('button')).find(b => {
+      const text = b.textContent.toLowerCase().trim();
+      return text === 'continue' || text.includes('continue');
+    });
+  }
+
+  if (!continueBtn) {
+    // Try finding by class or other attributes
+    continueBtn = document.querySelector('button[class*="continue"]') ||
+      document.querySelector('button[data-testid*="continue"]') ||
+      document.querySelector('form button');
+  }
+
+  if (continueBtn) {
+    console.log('[K12] Found continue button, disabled:', continueBtn.disabled);
+
+    if (!continueBtn.disabled) {
+      console.log('[K12] Clicking continue button now');
+
+      // Focus and blur the password input first to trigger any validation
+      const passwordInput = document.querySelector('input[type="password"]');
+      if (passwordInput) {
+        passwordInput.blur();
+      }
+
+      // Small delay then click
+      setTimeout(() => {
+        continueBtn.focus();
+        continueBtn.click();
+        console.log('[K12] Clicked continue button');
+
+        // Try clicking again after a delay as backup
+        setTimeout(() => {
+          if (document.body.contains(continueBtn)) {
+            console.log('[K12] Double-clicking continue button');
+            continueBtn.click();
+          }
+        }, 800);
+      }, 200);
+    } else {
+      // Button disabled, re-trigger events on input to enable it
+      console.log('[K12] Button disabled, re-triggering validation...');
+      const passwordInput = document.querySelector('input[type="password"]');
+      if (passwordInput) {
+        passwordInput.focus();
+        passwordInput.dispatchEvent(new Event('input', { bubbles: true }));
+        passwordInput.dispatchEvent(new Event('change', { bubbles: true }));
+        passwordInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+        passwordInput.blur();
+      }
+      setTimeout(() => checkAndClickContinue(attempts + 1), 150);
+    }
+  } else {
+    console.log('[K12] Continue button not found, attempt:', attempts);
+    setTimeout(() => checkAndClickContinue(attempts + 1), 150);
+  }
+}
+
+// Fill verification code and click continue - IMPROVED 2025
+function fillVerificationCodeAndContinue(code) {
+  console.log('[K12] Filling verification code:', code);
+
+  // Extended selectors for verification code input
+  const codeSelectors = [
+    'input[name="code"]',
+    'input[autocomplete="one-time-code"]',
+    'input[inputmode="numeric"]',
+    'input[maxlength="6"]',
+    'input[placeholder*="code" i]',
+    'input[placeholder*="verify" i]',
+    'input[aria-label*="code" i]',
+    'input[aria-label*="verification" i]',
+    'input[data-testid="verification-code-input"]',
+    'input[type="tel"]'
+  ];
+
+  let codeInput = null;
+  for (const selector of codeSelectors) {
+    codeInput = document.querySelector(selector);
+    if (codeInput) {
+      console.log('[K12] Found code input via:', selector);
+      break;
+    }
+  }
+
+  // Fallback: find first text input on verification page
+  if (!codeInput) {
+    const pageText = document.body.innerText.toLowerCase();
+    if (pageText.includes('verification') || pageText.includes('code') || pageText.includes('verify')) {
+      const textInputs = document.querySelectorAll('input[type="text"]:not([readonly]), input:not([type])');
+      for (const input of textInputs) {
+        if (input.offsetWidth > 0 && input.offsetHeight > 0) {
+          codeInput = input;
+          console.log('[K12] Found code input via text fallback');
+          break;
+        }
+      }
+    }
+  }
+
+  if (!codeInput) {
+    console.log('[K12] No code input found');
+    return false;
+  }
+
+  // Focus and clear
+  codeInput.focus();
+  codeInput.value = '';
+
+  // Use native setter for React compatibility
+  const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+  nativeInputValueSetter.call(codeInput, code);
+
+  // Trigger events
+  codeInput.dispatchEvent(new Event('input', { bubbles: true }));
+  codeInput.dispatchEvent(new Event('change', { bubbles: true }));
+  codeInput.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true }));
+  codeInput.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true }));
+
+  console.log('[K12] Filled verification code successfully');
+
+  // Click continue with retry
+  const clickContinue = (attempts) => {
+    if (attempts > 10) return;
+
+    const continueBtn = document.querySelector('button[type="submit"]') ||
+      document.querySelector('button[data-testid="continue-button"]') ||
+      Array.from(document.querySelectorAll('button')).find(b => {
+        const text = (b.textContent || '').toLowerCase().trim();
+        return text.includes('continue') || text.includes('verify') || text === 'продолжить';
+      });
+
+    if (continueBtn && !continueBtn.disabled) {
+      console.log('[K12] Clicking continue after code');
+      continueBtn.click();
+      setTimeout(() => {
+        if (document.body.contains(continueBtn)) continueBtn.click();
+      }, 600);
+    } else {
+      setTimeout(() => clickContinue(attempts + 1), 300);
+    }
+  };
+
+  setTimeout(() => clickContinue(0), 800);
+  return true;
+}
+
+// Fill name and birthday, then click continue
+function fillNameAndBirthdayAndContinue() {
+  console.log('[K12] Filling name and birthday');
+  let filledSomething = false;
+
+  // Fill name - try multiple selectors
+  let nameInput = document.querySelector('input[name="name"]') ||
+    document.querySelector('input[placeholder*="name" i]') ||
+    document.querySelector('input[placeholder*="Name"]') ||
+    document.querySelector('input[aria-label*="name" i]');
+
+  // If still not found, try the first text input that's not for birthday/date
+  if (!nameInput) {
+    const textInputs = document.querySelectorAll('input[type="text"]');
+    for (const input of textInputs) {
+      const placeholder = (input.placeholder || '').toLowerCase();
+      if (!placeholder.includes('birthday') && !placeholder.includes('date') && !placeholder.includes('/')) {
+        nameInput = input;
+        break;
+      }
+    }
+  }
+
+  if (nameInput && !nameInput.value) {
+    const randomName = 'User' + Math.floor(Math.random() * 90000 + 10000);
+    nameInput.focus();
+    nameInput.value = randomName;
+    nameInput.dispatchEvent(new Event('input', { bubbles: true }));
+    nameInput.dispatchEvent(new Event('change', { bubbles: true }));
+    console.log('[K12] Filled name:', randomName);
+    filledSomething = true;
+  }
+
+  // Fill birthday (MM/DD/YYYY format, year 1980-2000)
+  let birthdayInput = document.querySelector('input[placeholder*="Birthday" i]') ||
+    document.querySelector('input[placeholder*="birthday"]') ||
+    document.querySelector('input[name*="birthday" i]') ||
+    document.querySelector('input[placeholder*="MM/DD/YYYY"]') ||
+    document.querySelector('input[aria-label*="birthday" i]');
+
+  // If still not found, try to find an input that looks like a date field
+  if (!birthdayInput) {
+    const textInputs = document.querySelectorAll('input[type="text"]');
+    for (const input of textInputs) {
+      const placeholder = (input.placeholder || '').toLowerCase();
+      if (placeholder.includes('/') || placeholder.includes('mm') || placeholder.includes('dd')) {
+        birthdayInput = input;
+        break;
+      }
+    }
+  }
+
+  // Last resort: second text input (first is usually name)
+  if (!birthdayInput) {
+    const textInputs = document.querySelectorAll('input[type="text"]');
+    if (textInputs.length > 1) {
+      birthdayInput = textInputs[1];
+    }
+  }
+
+  if (birthdayInput && !birthdayInput.value) {
+    const month = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+    const day = String(Math.floor(Math.random() * 28) + 1).padStart(2, '0');
+    const year = String(1980 + Math.floor(Math.random() * 21));
+
+    const birthday = `${month}/${day}/${year}`;
+    birthdayInput.focus();
+    birthdayInput.value = birthday;
+    birthdayInput.dispatchEvent(new Event('input', { bubbles: true }));
+    birthdayInput.dispatchEvent(new Event('change', { bubbles: true }));
+    console.log('[K12] Filled birthday:', birthday);
+    filledSomething = true;
+  }
+
+  // Click continue (with retry mechanism)
+  setTimeout(() => {
+    const clickContinue = (attempts) => {
+      if (attempts > 10) return;
+
+      const continueBtn = document.querySelector('button[type="submit"]') ||
+        Array.from(document.querySelectorAll('button')).find(b =>
+          b.textContent.toLowerCase().includes('continue') || b.textContent.toLowerCase().includes('agree'));
+
+      if (continueBtn && !continueBtn.disabled) {
+        console.log('[K12] Clicking continue after profile');
+        continueBtn.click();
+        // Double-click for reliability
+        setTimeout(() => {
+          if (document.body.contains(continueBtn)) {
+            continueBtn.click();
+          }
+        }, 500);
+      } else {
+        setTimeout(() => clickContinue(attempts + 1), 300);
+      }
+    };
+
+    clickContinue(0);
+  }, 1000);
+
+  return filledSomething;
+}
+
+// ========== Fetch Verification Code for Login ==========
+
+async function fetchK12VerificationCode(email, emailName) {
+  console.log('[K12 Code] Fetching code for:', email);
+
+  try {
+    // Open temp mail in hidden tab with login
+    const loginUrl = TEMP_MAIL_URL;
+    const tempMailTab = await chrome.tabs.create({
+      url: loginUrl,
+      active: false
+    });
+
+    // Wait for page to load
+    await waitForTabLoad(tempMailTab.id);
+    await sleep(2000);
+
+    // First, log in with the email username
+    await chrome.scripting.executeScript({
+      target: { tabId: tempMailTab.id },
+      func: loginToTempMail,
+      args: [emailName]
+    });
+
+    // Wait for login and inbox to load
+    await sleep(5000);
+
+    // Now try to refresh and get the code
+    await chrome.scripting.executeScript({
+      target: { tabId: tempMailTab.id },
+      func: clickRefreshAndOpenEmail
+    });
+
+    await sleep(3000);
+
+    // Poll for verification code
+    let verificationCode = null;
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    while (!verificationCode && attempts < maxAttempts) {
+      attempts++;
+
+      const result = await chrome.scripting.executeScript({
+        target: { tabId: tempMailTab.id },
+        func: getVerificationCode
+      });
+
+      if (result && result[0] && result[0].result) {
+        verificationCode = result[0].result;
+        console.log('[K12 Code] Found code:', verificationCode);
+      } else {
+        await sleep(2000);
+      }
+    }
+
+    // Close the tab
+    try {
+      chrome.tabs.remove(tempMailTab.id);
+    } catch (e) { }
+
+    // Send result to popup
+    chrome.runtime.sendMessage({
+      action: 'k12CodeFetched',
+      code: verificationCode
+    }).catch(() => { });
+
+  } catch (error) {
+    console.error('[K12 Code] Error:', error);
+    chrome.runtime.sendMessage({
+      action: 'k12CodeFetched',
+      code: null
+    }).catch(() => { });
+  }
+}
+
+// Injected to login to temp mail with existing email - MUST SWITCH ACCOUNTS
+function loginToTempMail(emailName) {
+  console.log('[K12 Login] === FORCING LOGIN TO EMAIL:', emailName, '===');
+
+  // Step 1: Click on "Login" tab at the top (the first tab)
+  const tabs = document.querySelectorAll('a, span, div, li');
+  let loginTabClicked = false;
+
+  for (const tab of tabs) {
+    const text = tab.textContent.trim();
+    // Look specifically for "Login" tab text (exact match, not "User Login")
+    if (text === 'Login' || text === 'login') {
+      console.log('[K12 Login] Clicking Login tab');
+      tab.click();
+      loginTabClicked = true;
+      break;
+    }
+  }
+
+  if (!loginTabClicked) {
+    console.log('[K12 Login] Login tab not found, trying any login link...');
+  }
+
+  // Step 2: Wait for login form, then fill the input - FASTER
+  setTimeout(() => {
+    // Find the input field
+    const allInputs = document.querySelectorAll('input[type="text"], input:not([type])');
+    let credentialInput = null;
+
+    for (const input of allInputs) {
+      if (input.type === 'hidden' || input.readOnly) continue;
+      credentialInput = input;
+      break;
+    }
+
+    if (credentialInput) {
+      console.log('[K12 Login] Filling email name:', emailName);
+      credentialInput.focus();
+      credentialInput.value = '';
+      credentialInput.value = emailName;
+      credentialInput.dispatchEvent(new Event('input', { bubbles: true }));
+      credentialInput.dispatchEvent(new Event('change', { bubbles: true }));
+      credentialInput.blur();
+      console.log('[K12 Login] Filled with:', credentialInput.value);
+    }
+
+    // Step 3: Select erzi.me domain - FASTER
+    setTimeout(() => {
+      const selects = document.querySelectorAll('select');
+      for (const select of selects) {
+        for (const opt of select.options) {
+          if (opt.value.includes('erzi.me') || opt.text.includes('erzi.me')) {
+            select.value = opt.value;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+            console.log('[K12 Login] Selected erzi.me');
+            break;
+          }
+        }
+      }
+
+      // Step 4: Click the Login button - FASTER
+      setTimeout(() => {
+        const buttons = document.querySelectorAll('button');
+        let loginBtn = null;
+
+        for (const btn of buttons) {
+          const text = btn.textContent.toLowerCase().trim();
+          if (text === 'login' || text.includes('login')) {
+            if (!text.includes('user')) {
+              loginBtn = btn;
+              break;
+            }
+          }
+        }
+
+        if (!loginBtn) {
+          for (const btn of buttons) {
+            if (btn.textContent.toLowerCase().includes('login')) {
+              loginBtn = btn;
+              break;
+            }
+          }
+        }
+
+        if (loginBtn) {
+          console.log('[K12 Login] Clicking Login button');
+          loginBtn.click();
+          setTimeout(() => loginBtn.click(), 300);
+        } else {
+          console.log('[K12 Login] ERROR: No Login button found');
+        }
+      }, 200);
+    }, 200);
+  }, 500);
+
+  return true;
+}
+
+// Click refresh button and open latest email - MATCHES ACTUAL UI
+function clickRefreshAndOpenEmail() {
+  console.log('[K12 Refresh] Refreshing inbox...');
+
+  // First, make sure we're on Mail Box tab
+  const tabs = document.querySelectorAll('a, span, div, button, li');
+  for (const tab of tabs) {
+    const text = tab.textContent.trim().toLowerCase();
+    if (text === 'mail box' || text === 'mailbox' || text === 'inbox') {
+      console.log('[K12 Refresh] Clicking Mail Box tab');
+      tab.click();
+      break;
+    }
+  }
+
+  // Wait a moment then click refresh
+  setTimeout(() => {
+    // Try to click Refresh button
+    const buttons = document.querySelectorAll('button');
+    let refreshBtn = null;
+
+    for (const btn of buttons) {
+      const text = btn.textContent.toLowerCase().trim();
+      if (text === 'refresh' || text.includes('refresh')) {
+        refreshBtn = btn;
+        break;
+      }
+    }
+
+    // Also try by title attribute
+    if (!refreshBtn) {
+      refreshBtn = document.querySelector('button[title*="Refresh"]');
+    }
+
+    if (refreshBtn) {
+      console.log('[K12 Refresh] Clicking Refresh button');
+      refreshBtn.click();
+    } else {
+      console.log('[K12 Refresh] Refresh button not found');
+    }
+
+    // Wait for emails to load, then click on OpenAI email
+    setTimeout(() => {
+      const emailItems = document.querySelectorAll('[class*="mail"], [class*="item"], tr, li, div');
+
+      for (const item of emailItems) {
+        const text = (item.textContent || '').toLowerCase();
+        // Look for OpenAI/ChatGPT verification emails
+        if ((text.includes('openai') || text.includes('chatgpt') || text.includes('verification')) &&
+          text.includes('code')) {
+          console.log('[K12 Refresh] Found OpenAI email, clicking...');
+          item.click();
+          break;
+        }
+      }
+    }, 1500);
+  }, 500);
+}
+
+// ========== LIVE CC CHECKER ==========
+
+const LIVE_CC_CHECKER_URL = 'https://teamcsb.com/live-cc-checker/';
+
+let liveccState = {
+  isChecking: false,
+  checkerTabId: null,
+  cards: [],
+  liveCards: []
+};
+
+// Send progress update to popup
+function sendLiveCCProgress(percent, status) {
+  chrome.runtime.sendMessage({
+    action: 'liveccProgress',
+    percent: percent,
+    status: status
+  }).catch(() => { });
+}
+
+// Send completion to popup
+function sendLiveCCComplete(liveCards) {
+  chrome.runtime.sendMessage({
+    action: 'liveccComplete',
+    liveCards: liveCards
+  }).catch(() => { });
+}
+
+// Send error to popup
+function sendLiveCCError(message) {
+  chrome.runtime.sendMessage({
+    action: 'liveccError',
+    message: message
+  }).catch(() => { });
+}
+
+// Stop Live CC Check
+function stopLiveCCCheck() {
+  liveccState.isChecking = false;
+  if (liveccState.checkerTabId) {
+    chrome.tabs.remove(liveccState.checkerTabId).catch(() => { });
+    liveccState.checkerTabId = null;
+  }
+}
+
+// Handle results from content script
+function handleLiveCCResults(liveCards, tabId) {
+  console.log('[Live CC] Received results:', liveCards);
+  liveccState.liveCards = liveCards || [];
+  liveccState.isChecking = false;
+
+  // Close the checker tab
+  if (tabId) {
+    setTimeout(() => {
+      chrome.tabs.remove(tabId).catch(() => { });
+    }, 1000);
+  }
+
+  sendLiveCCComplete(liveccState.liveCards);
+}
+
+// Main Live CC checking function - Uses chkr.cc API directly
+async function checkLiveCCCards(bin, country, expiryMonth, expiryYear) {
+  if (liveccState.isChecking) {
+    sendLiveCCError('Уже выполняется проверка. Пожалуйста, подождите.');
+    return;
+  }
+
+  liveccState.isChecking = true;
+  liveccState.liveCards = [];
+
+  try {
+    sendLiveCCProgress(5, 'Генерация карт...');
+
+    // Generate 100 cards using Luhn
+    const expMonth = expiryMonth || (country === 'IN' ? INDIA_EXPIRY_MONTH : HARDCODED_EXPIRY_MONTH);
+    const expYear = expiryYear || (country === 'IN' ? INDIA_EXPIRY_YEAR : HARDCODED_EXPIRY_YEAR);
+    const cleanedBin = bin.replace(/x/gi, '').replace(/\\s+/g, '').trim();
+
+    const cards = generateCardsWithLuhn(cleanedBin, 100, expMonth, expYear);
+    liveccState.cards = cards;
+
+    console.log('[Live CC] Generated', cards.length, 'cards');
+    sendLiveCCProgress(10, 'Проверка карт через API...');
+
+    // Check cards one by one via chkr.cc API
+    const liveCards = [];
+    const deadCards = [];
+    const unknownCards = [];
+
+    for (let i = 0; i < cards.length; i++) {
+      if (!liveccState.isChecking) {
+        console.log('[Live CC] Stopped by user');
+        break;
+      }
+
+      const card = cards[i];
+      const year2digit = card.expiry_year.slice(-2);
+      const cardString = `${card.card_number}|${card.expiry_month}|20${year2digit}|${card.cvv}`;
+
+      try {
+        const response = await fetch('https://api.chkr.cc/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `data=${encodeURIComponent(cardString)}`
+        });
+
+        const result = await response.json();
+        console.log(`[Live CC] Card ${i + 1}/${cards.length}:`, result.status, result.message);
+
+        if (result.code === 1 || result.status === 'Live') {
+          liveCards.push({
+            cardNumber: card.card_number,
+            expiry: `${card.expiry_month}/${year2digit}`,
+            cvv: card.cvv,
+            message: result.message,
+            bank: result.card?.bank || 'Unknown',
+            country: result.card?.country?.name || 'Unknown'
+          });
+        } else if (result.code === 0 || result.status === 'Die') {
+          deadCards.push(card);
+        } else {
+          unknownCards.push(card);
+        }
+
+        // Update progress
+        const progress = 10 + Math.floor((i / cards.length) * 85);
+        const statusText = `Проверка ${i + 1}/${cards.length} - Активные: ${liveCards.length}, Нерабочие: ${deadCards.length}`;
+        sendLiveCCProgress(progress, statusText);
+
+        // Small delay to avoid rate limiting
+        if (i < cards.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, 500));
+        }
+
+      } catch (error) {
+        console.error(`[Live CC] API error for card ${i + 1}:`, error);
+        unknownCards.push(card);
+      }
+    }
+
+    // Complete
+    sendLiveCCProgress(100, `Готово! Активные: ${liveCards.length}, Нерабочие: ${deadCards.length}, Неизвестно: ${unknownCards.length}`);
+    liveccState.liveCards = liveCards;
+    sendLiveCCComplete(liveCards);
+
+    console.log('[Live CC] Complete. Live cards:', liveCards.length);
+
+  } catch (error) {
+    console.error('[Live CC] Error:', error);
+    sendLiveCCError(error.message || 'Произошла неизвестная ошибка');
+  } finally {
+    liveccState.isChecking = false;
+  }
+}
+

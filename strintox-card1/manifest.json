@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "Strintox Card Automation",
+  "version": "6.6.2",
+  "description": "Автоматическое заполнение платежных форм сгенерированными картами",
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting",
+    "activeTab",
+    "sidePanel",
+    "cookies",
+    "debugger",
+    "downloads"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://checkout.stripe.com/*",
+        "https://pay.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://js.stripe.com/*",
+        "https://payments.google.com/*",
+        "https://pay.google.com/*",
+        "https://wallet.google.com/*",
+        "https://em.bjedu.tech/*",
+        "https://auth.openai.com/*",
+        "https://teamcsb.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "images/strintox_logo.png",
+    "32": "images/strintox_logo.png",
+    "48": "images/strintox_logo.png",
+    "128": "images/strintox_logo.png"
+  },
+  "action": {
+    "default_title": "Strintox Card Automation",
+    "default_icon": {
+      "16": "images/strintox_logo.png",
+      "32": "images/strintox_logo.png",
+      "48": "images/strintox_logo.png",
+      "128": "images/strintox_logo.png"
+    }
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "incognito": "spanning"
+}

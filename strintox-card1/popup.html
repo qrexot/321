@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Автоматизация карт Strintox</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/strintox_logo.png">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <img src="images/strintox_logo.png" alt="Strintox" class="logo-icon">
+        <h2>Автоматизация карт Strintox</h2>
+      </div>
+    </div>
+
+    <!-- FunPay Profile Link -->
+    <div class="social-links-section">
+      <a href="https://funpay.com/users/14530263/" target="_blank" class="funpay-link">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="funpay-icon">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+        <span>Мой профиль FunPay</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" class="arrow-icon">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+      <button class="tab-btn active" data-tab="generate">Сгенерировать</button>
+      <button class="tab-btn" data-tab="livecc">Проверка Live CC</button>
+      <button class="tab-btn" data-tab="precards">Пре-карты</button>
+      <button class="tab-btn" data-tab="openai">Аккаунт OpenAI</button>
+    </div>
+
+    <!-- Tab Content: Generate Now -->
+    <div class="content tab-content active" id="generateTab">
+      <div class="input-group">
+        <label for="bin">Введите BIN:</label>
+        <input type="text" id="bin" placeholder="552461" maxlength="16">
+      </div>
+
+      <div class="input-group">
+        <label for="generateMethod">Метод генерации:</label>
+        <select id="generateMethod" class="method-select">
+          <option value="local">Локальный генератор (Быстро)</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="countrySelect">Страна биллинга:</label>
+        <select id="countrySelect" class="method-select">
+          <option value="KR">Южная Корея</option>
+          <option value="IN" selected>Индия (По умолчанию)</option>
+          <option value="GB">Великобритания</option>
+          <option value="US">США</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Свой срок действия (Опционально):</label>
+        <div class="expiry-row">
+          <select id="expiryMonth" class="expiry-select">
+            <option value="">Месяц</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03" selected>03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <span class="expiry-separator">/</span>
+          <select id="expiryYear" class="expiry-select">
+            <option value="">Год</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029" selected>2029</option>
+            <option value="2030">2030</option>
+            <option value="2031">2031</option>
+            <option value="2032">2032</option>
+            <option value="2033">2033</option>
+            <option value="2034">2034</option>
+            <option value="2035">2035</option>
+            <option value="2036">2036</option>
+            <option value="2037">2037</option>
+            <option value="2038">2038</option>
+            <option value="2039">2039</option>
+            <option value="2040">2040</option>
+            <option value="2041">2041</option>
+            <option value="2042">2042</option>
+            <option value="2043">2043</option>
+            <option value="2044">2044</option>
+            <option value="2045">2045</option>
+            <option value="2046">2046</option>
+            <option value="2047">2047</option>
+            <option value="2048">2048</option>
+            <option value="2049">2049</option>
+            <option value="2050">2050</option>
+          </select>
+        </div>
+        <small class="expiry-hint">По умолчанию: 03/2029 если не изменено</small>
+      </div>
+
+      <div class="status" id="status">
+        <p>Введите BIN и посетите страницу оплаты Stripe</p>
+      </div>
+
+      <button id="generateBtn" class="btn btn-primary">
+        Сгенерировать и заполнить
+      </button>
+
+      <button id="clearBtn" class="btn btn-secondary">
+        Очистить сохраненный BIN
+      </button>
+
+      <div class="info vpn-warning">
+        <h4>Как использовать:</h4>
+        <ol>
+          <li><strong>Подключитесь к VPN Южной Кореи</strong></li>
+          <li>Используйте любой VPN: <strong>NordVPN, ProtonVPN, CyberGhost, Urban VPN</strong> и т.д.</li>
+          <li>Перейдите на <strong>Страницу оплаты OpenAI</strong> или Stripe checkout</li>
+          <li>Нажмите на иконку расширения</li>
+          <li>Нажмите <strong>"Сгенерировать и заполнить"</strong></li>
+          <li>Данные карты будут заполнены автоматически!</li>
+        </ol>
+      </div>
+
+      <div class="info critical-warning">
+        <h4>Важно:</h4>
+        <p><strong>VPN должен быть подключен к Южной Корее перед открытием страницы оплаты.</strong></p>
+        <p>Работает на: pay.openai.com & checkout.stripe.com</p>
+      </div>
+
+      <div class="saved-bin" id="savedBin" style="display: none;">
+        <p><strong>Сохраненный BIN:</strong> <span id="savedBinValue"></span></p>
+      </div>
+
+
+    </div>
+
+    <!-- Tab Content: Pre-Cards -->
+    <div class="content tab-content" id="precardsTab">
+      <div class="input-group">
+        <label for="precardBin">Введите BIN для Пре-карт:</label>
+        <input type="text" id="precardBin" placeholder="552461" maxlength="16">
+      </div>
+
+      <div class="input-group">
+        <label for="precardMethod">Метод генерации:</label>
+        <select id="precardMethod" class="method-select">
+          <option value="local">Локальный генератор (Быстро)</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="precardCountrySelect">Страна биллинга:</label>
+        <select id="precardCountrySelect" class="method-select">
+          <option value="KR">Южная Корея</option>
+          <option value="IN" selected>Индия (По умолчанию)</option>
+          <option value="GB">Великобритания</option>
+          <option value="US">США</option>
+        </select>
+      </div>
+
+      <div class="status" id="precardStatus">
+        <p>Сгенерируйте пре-карты для сохранения на будущее</p>
+      </div>
+
+      <button id="generatePrecardsBtn" class="btn btn-primary">
+        Сгенерировать 10 Пре-карт
+      </button>
+
+      <button id="clearPrecardsBtn" class="btn btn-secondary">
+        Очистить все Пре-карты
+      </button>
+
+      <div class="precards-container" id="precardsContainer">
+        <h3 class="precards-title">Сохраненные Пре-карты</h3>
+        <div id="precardsList" class="precards-list">
+          <p class="no-cards-message">Пре-карты еще не сгенерированы</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <h4>Как использовать Пре-карты:</h4>
+        <ol>
+          <li>Введите BIN и нажмите "Сгенерировать 10 Пре-карт"</li>
+          <li>Карты будут сохранены локально</li>
+          <li>Откройте любую страницу оплаты Stripe</li>
+          <li>Нажмите кнопку "Использовать" рядом с любой картой</li>
+          <li>Данные карты заполнятся мгновенно!</li>
+          <li>Перегенерируйте карты в любое время с новым BIN</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Tab Content: Live CC -->
+    <div class="content tab-content" id="liveccTab">
+      <div class="livecc-header">
+        <h3>Проверка Live CC</h3>
+        <p>Сгенерируйте карты и проверьте, какие из них ЖИВЫЕ</p>
+      </div>
+
+      <div class="input-group">
+        <label for="liveccBin">Введите BIN:</label>
+        <input type="text" id="liveccBin" placeholder="552461" maxlength="16">
+      </div>
+
+      <div class="input-group">
+        <label for="liveccCountrySelect">Страна биллинга:</label>
+        <select id="liveccCountrySelect" class="method-select">
+          <option value="KR">Южная Корея</option>
+          <option value="IN" selected>Индия (По умолчанию)</option>
+          <option value="GB">Великобритания</option>
+          <option value="US">США</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Свой срок действия (Опционально):</label>
+        <div class="expiry-row">
+          <select id="liveccExpiryMonth" class="expiry-select">
+            <option value="">Месяц</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03" selected>03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <span class="expiry-separator">/</span>
+          <select id="liveccExpiryYear" class="expiry-select">
+            <option value="">Год</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029" selected>2029</option>
+            <option value="2030">2030</option>
+            <option value="2031">2031</option>
+            <option value="2032">2032</option>
+            <option value="2033">2033</option>
+            <option value="2034">2034</option>
+            <option value="2035">2035</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="livecc-progress-section" id="liveccProgressSection" style="display: none;">
+        <div class="progress-bar-container">
+          <div class="progress-bar livecc-progress-bar" id="liveccProgressBar" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">
+          <span id="liveccProgressPercent">0%</span>
+          <span id="liveccProgressStatus">Инициализация...</span>
+        </div>
+      </div>
+
+      <div class="status" id="liveccStatus">
+        <p>Сгенерировать и проверить карты на статус LIVE</p>
+      </div>
+
+      <button id="liveccBtn" class="btn btn-primary btn-livecc">
+        Проверить Live CC
+      </button>
+
+      <button id="liveccStopBtn" class="btn btn-secondary" style="display: none;">
+        Остановить проверку
+      </button>
+
+      <div class="livecc-results" id="liveccResults" style="display: none;">
+        <h4>Найдены активные карты:</h4>
+        <div id="liveccCardsList" class="livecc-cards-list">
+          <p class="no-cards-message">Активные карты не найдены</p>
+        </div>
+      </div>
+
+      <div class="info livecc-info">
+        <h4>Как это работает:</h4>
+        <ol>
+          <li>Введите BIN и выберите страну</li>
+          <li>Нажмите "Проверить Live CC"</li>
+          <li>Расширение генерирует 100 карт</li>
+          <li>Проверяет через чекер TeamCSB</li>
+          <li>Только LIVE карты будут показаны</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Tab Content: OpenAI Account -->
+    <div class="content tab-content" id="openaiTab">
+      <div class="openai-header">
+        <h3>Создатель аккаунтов OpenAI</h3>
+        <p>Создавайте аккаунты ChatGPT автоматически с временной почтой</p>
+      </div>
+
+      <div class="openai-status-section">
+        <div class="email-display" id="tempEmailDisplay">
+          <span class="email-label">Врем. Почта:</span>
+          <span class="email-value" id="tempEmailValue">Не сгенерировано</span>
+          <button class="copy-btn" id="copyEmailBtn" title="Копировать Email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="openai-progress" id="openaiProgress" style="display: none;">
+        <div class="progress-bar-container">
+          <div class="progress-bar openai-progress-bar" id="openaiProgressBar" style="width: 0%"></div>
+        </div>
+        <div class="progress-steps" id="openaiProgressSteps">
+          <span class="step" data-step="1">Email</span>
+          <span class="step" data-step="2">Регистр.</span>
+          <span class="step" data-step="3">Пароль</span>
+          <span class="step" data-step="4">Проверка</span>
+          <span class="step" data-step="5">Профиль</span>
+        </div>
+      </div>
+
+      <div class="status" id="openaiStatus">
+        <p>Нажмите "Создать аккаунт" чтобы начать</p>
+      </div>
+
+      <button id="createOpenAIBtn" class="btn btn-primary btn-openai">
+        Создать аккаунт OpenAI
+      </button>
+
+      <button id="fetchCodeBtn" class="btn btn-secondary" style="display: none;">
+        Получить код подтверждения
+      </button>
+
+      <div class="saved-accounts-section" id="savedAccountsSection" style="display: none;">
+        <h4>Сохраненные аккаунты:</h4>
+        <div id="savedAccountsList" class="saved-accounts-list"></div>
+
+        <div class="funpay-export-section">
+          <h5>Экспорт для FunPay:</h5>
+          <div class="export-buttons">
+            <button id="exportSimpleBtn" class="btn btn-export" title="email:password">
+              Формат 1 (email:pass)
+            </button>
+            <button id="exportDetailedBtn" class="btn btn-export" title="Email + пароль отдельно">
+              Формат 2 (подробный)
+            </button>
+          </div>
+          <button id="downloadAllBtn" class="btn btn-primary btn-download-all">
+            Скачать все аккаунты (.txt)
+          </button>
+          <div id="exportResult" class="export-result" style="display: none;">
+            <textarea id="exportText" readonly></textarea>
+            <button id="copyExportBtn" class="btn btn-secondary btn-copy-export">Копировать</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="info openai-info">
+        <h4>Как это работает:</h4>
+        <ol>
+          <li>Нажмите "Создать аккаунт OpenAI"</li>
+          <li>Расширение генерирует врем. почту (1secmail)</li>
+          <li>Открывает chatgpt.com и вводит email</li>
+          <li>Автоматически создает пароль</li>
+          <li>Получает код подтверждения из ящика</li>
+          <li>Вводит код и заполняет профиль</li>
+          <li>Аккаунт готов! Данные сохранены.</li>
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
